@@ -3,12 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Mimae</title>
+    <meta
+      name="description"
+      content="Portfolio développeur – Projets, compétences et contact."
+    />
+    <title>Portfolio Mimae (Développeur web)</title>
   </head>
   <body>
+    <a href="#main" class="skip-link">Aller au contenu</a>
     <header>
       <h1 class="portfolio__title">Portfolio Mimae</h1>
-      <nav class="portfolio__nav">
+      <nav class="portfolio__nav" aria-label="Navigation principale">
         <ul class="portfolio__nav-items">
           <li class="portfolio__nav-item"><a href="#about">À propos</a></li>
           <li class="portfolio__nav-item"><a href="#projects">Projets</a></li>
@@ -16,14 +21,14 @@
         </ul>
       </nav>
     </header>
-    <main>
-      <section id="about">
-        <h2>À propos de moi</h2>
+    <main id="main">
+      <section id="about" aria-labelledby="titre-apropos">
+        <h2 id="titre-apropos">À propos de moi</h2>
         <p>
           Bienvenue sur mon portfolio! Je suis Mimae, un développeur passionné
           par la création de solutions web innovantes.
         </p>
-        <img src="/ressources/profil.png" alt="photo de profil" />
+        <img src="/ressources/profil.png" alt="portrait de Mimae" />
 
         <blockquote>
           <p>
@@ -33,8 +38,8 @@
           <cite>Winston Churchill</cite>
         </blockquote>
       </section>
-      <section id="projects">
-        <h2>Projets</h2>
+      <section id="projects" aria-labelledby="titre-projets">
+        <h2 id="titre-projets">Projets</h2>
         <ul>
           <li>
             <article>
@@ -45,20 +50,19 @@
                 modification et suppression de tâches.
               </p>
               <a href="http://" target="_blank" rel="noopener noreferrer"
-                >Voir le projet</a
+                >Ouvir le projet "gestion des tâches".</a
               >
             </article>
-            `
           </li>
           <li>
             <article>
               <h3>Application de gestion de collection de jeux de société</h3>
               <p>
                 Une application web permettant aux passionnés de jeux de société
-                dé gérer, trier leurs collection tout en récupérant des données.
+                de gérer, trier leurs collection tout en récupérant des données.
               </p>
               <a href="http://" target="_blank" rel="noopener noreferrer"
-                >Voir le projet</a
+                >Ouvir le projet "gestion de collection de jeux de société".</a
               >
             </article>
           </li>
@@ -67,42 +71,68 @@
               <h3>Site auteur</h3>
               <p>Site d'une autrice de romans talentueuse.</p>
               <a href="http://" target="_blank" rel="noopener noreferrer"
-                >Voir le site</a
-              >
+                >Ouvrir le site "autrice de romans à succès".
+              </a>
             </article>
           </li>
         </ul>
       </section>
-      <section id="contact">
-        <h2>Contactez-moi</h2>
-        <p>
-          Vous pouvez me contacter par email à mimaemaths@gmail.Contactez-moi ou
-          via les réseaux sociaux.
-        </p>
-        <form action="">
-          <label for="name">Nom:</label>
-          <input type="text" id="name" name="name" required />
+      <section id="contact" aria-labelledby="titre-contact">
+        <h2 id="titre-contact">Contactez-moi</h2>
 
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+        <form action="#" method="post" aria-describedby="contact-help">
+          <p id="contact-help">Tous les champs sont requis.</p>
 
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
+          <div>
+            <label for="nom">Nom</label>
+            <input
+              id="nom"
+              name="nom"
+              type="text"
+              autocomplete="name"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="email">E-mail</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
 
           <button type="submit">Envoyer</button>
+          <p role="status" aria-live="polite">“Message envoyé”.</p>
         </form>
       </section>
     </main>
-    <footer>
-      <p>&copy; 2025 Portfolio Mimae</p>
-      <section>
-        <h2>Réseaux sociaux</h2>
+    <footer aria-labelledby="titre-footer">
+      <h2 id="titre-footer" class="sr-only">Pied de page</h2>
+      <nav aria-label="Réseaux sociaux">
         <ul>
-          <li><a href="http://">LinkedIn</a></li>
-          <li><a href="http://">GitHub</a></li>
-          <li><a href="http://">Twitter</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/ton-profil"
+              >Profil LinkedIn de Mimae</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/mimae71">Profil GitHub de Mimae</a>
+          </li>
+          <li>
+            <a href="https://x.com/ton-handle">Profil X (Twitter) de Mimae</a>
+          </li>
         </ul>
-      </section>
+      </nav>
+      <p>© 2025 Portfolio Mimae</p>
     </footer>
   </body>
 </html>
