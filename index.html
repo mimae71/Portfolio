@@ -7,85 +7,138 @@
       name="description"
       content="Portfolio développeur – Projets, compétences et contact."
     />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Newsreader:opsz,wght@14..72,500;14..72,700&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Portfolio Mimae (Développeur web)</title>
   </head>
-  <body>
+  <body class="portfolio">
     <a href="#main" class="skip-link">Aller au contenu</a>
-    <header>
-      <h1 class="portfolio__title">Portfolio Mimae</h1>
-      <nav class="portfolio__nav" aria-label="Navigation principale">
-        <ul class="portfolio__nav-items">
-          <li class="portfolio__nav-item"><a href="#about">À propos</a></li>
-          <li class="portfolio__nav-item"><a href="#projects">Projets</a></li>
-          <li class="portfolio__nav-item"><a href="#contact">Contact</a></li>
+
+    <header class="portfolio__header header">
+      <h1 class="portfolio__title header__title">Portfolio Mimae</h1>
+
+      <nav class="portfolio__nav nav" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="#about">À propos</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#projects">Projets</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#contact">Contact</a>
+          </li>
         </ul>
       </nav>
     </header>
-    <main id="main">
-      <section id="about" aria-labelledby="titre-apropos">
-        <h2 id="titre-apropos">À propos de moi</h2>
-        <p>
+
+    <main id="main" class="portfolio__main">
+      <section id="about" class="about" aria-labelledby="titre-apropos">
+        <h2 id="titre-apropos" class="about__title">À propos de moi</h2>
+
+        <p class="about__text">
           Bienvenue sur mon portfolio! Je suis Mimae, un développeur passionné
           par la création de solutions web innovantes.
         </p>
-        <img src="/ressources/profil.png" alt="portrait de Mimae" />
 
-        <blockquote>
-          <p>
+        <img
+          class="about__image"
+          src="/ressources/profil.png"
+          alt="portrait de Mimae"
+        />
+
+        <blockquote class="about__quote quote">
+          <p class="quote__text">
             Le succès, c’est d’aller d’échec en échec sans perdre son
             enthousiasme.
           </p>
-          <cite>Winston Churchill</cite>
+          <cite class="quote__cite">Winston Churchill</cite>
         </blockquote>
       </section>
-      <section id="projects" aria-labelledby="titre-projets">
-        <h2 id="titre-projets">Projets</h2>
-        <ul>
-          <li>
-            <article>
-              <h3>Application de gestion de tâches</h3>
-              <p>
+
+      <section id="projects" class="projects" aria-labelledby="titre-projets">
+        <h2 id="titre-projets" class="projects__title">Projets</h2>
+
+        <ul class="projects__list">
+          <li class="projects__item">
+            <article class="project-card project-card--tasks">
+              <h3 class="project-card__title">
+                Application de gestion de tâches
+              </h3>
+              <p class="project-card__description">
                 Une application web permettant aux utilisateurs de gérer leurs
                 tâches quotidiennes avec des fonctionnalités de création,
                 modification et suppression de tâches.
               </p>
-              <a href="http://" target="_blank" rel="noopener noreferrer"
+              <a
+                class="project-card__link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Ouvir le projet "gestion des tâches".</a
               >
             </article>
           </li>
-          <li>
-            <article>
-              <h3>Application de gestion de collection de jeux de société</h3>
-              <p>
+
+          <li class="projects__item">
+            <article class="project-card project-card--boardgames">
+              <h3 class="project-card__title">
+                Application de gestion de collection de jeux de société
+              </h3>
+              <p class="project-card__description">
                 Une application web permettant aux passionnés de jeux de société
                 de gérer, trier leurs collection tout en récupérant des données.
               </p>
-              <a href="http://" target="_blank" rel="noopener noreferrer"
+              <a
+                class="project-card__link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Ouvir le projet "gestion de collection de jeux de société".</a
               >
             </article>
           </li>
-          <li>
-            <article>
-              <h3>Site auteur</h3>
-              <p>Site d'une autrice de romans talentueuse.</p>
-              <a href="http://" target="_blank" rel="noopener noreferrer"
-                >Ouvrir le site "autrice de romans à succès".
-              </a>
+
+          <li class="projects__item">
+            <article class="project-card project-card--author-site">
+              <h3 class="project-card__title">Site auteur</h3>
+              <p class="project-card__description">
+                Site d'une autrice de romans talentueuse.
+              </p>
+              <a
+                class="project-card__link"
+                href="http://"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Ouvrir le site "autrice de romans à succès".</a
+              >
             </article>
           </li>
         </ul>
       </section>
-      <section id="contact" aria-labelledby="titre-contact">
-        <h2 id="titre-contact">Contactez-moi</h2>
 
-        <form action="#" method="post" aria-describedby="contact-help">
-          <p id="contact-help">Tous les champs sont requis.</p>
+      <section id="contact" class="contact" aria-labelledby="titre-contact">
+        <h2 id="titre-contact" class="contact__title">Contactez-moi</h2>
 
-          <div>
-            <label for="nom">Nom</label>
+        <form
+          class="contact__form form"
+          action="#"
+          method="post"
+          aria-describedby="contact-help"
+        >
+          <p id="contact-help" class="form__help">
+            Tous les champs sont requis.
+          </p>
+
+          <div class="form__field">
+            <label class="form__label" for="nom">Nom</label>
             <input
+              class="form__input"
               id="nom"
               name="nom"
               type="text"
@@ -94,9 +147,10 @@
             />
           </div>
 
-          <div>
-            <label for="email">E-mail</label>
+          <div class="form__field">
+            <label class="form__label" for="email">E-mail</label>
             <input
+              class="form__input"
               id="email"
               name="email"
               type="email"
@@ -105,34 +159,52 @@
             />
           </div>
 
-          <div>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+          <div class="form__field">
+            <label class="form__label" for="message">Message</label>
+            <textarea
+              class="form__textarea"
+              id="message"
+              name="message"
+              rows="5"
+              required
+            ></textarea>
           </div>
 
-          <button type="submit">Envoyer</button>
-          <p role="status" aria-live="polite">“Message envoyé”.</p>
+          <button class="btn btn--primary" type="submit">Envoyer</button>
+
+          <p class="form__status" role="status" aria-live="polite">
+            “Message envoyé”.
+          </p>
         </form>
       </section>
     </main>
-    <footer aria-labelledby="titre-footer">
-      <h2 id="titre-footer" class="sr-only">Pied de page</h2>
-      <nav aria-label="Réseaux sociaux">
-        <ul>
-          <li>
-            <a href="https://www.linkedin.com/in/ton-profil"
+
+    <footer class="portfolio__footer footer" aria-labelledby="titre-footer">
+      <h2 id="titre-footer" class="footer__title sr-only">Pied de page</h2>
+
+      <nav class="footer__social social" aria-label="Réseaux sociaux">
+        <ul class="social__list">
+          <li class="social__item">
+            <a
+              class="social__link"
+              href="https://www.linkedin.com/in/ton-profil"
               >Profil LinkedIn de Mimae</a
             >
           </li>
-          <li>
-            <a href="https://github.com/mimae71">Profil GitHub de Mimae</a>
+          <li class="social__item">
+            <a class="social__link" href="https://github.com/mimae71"
+              >Profil GitHub de Mimae</a
+            >
           </li>
-          <li>
-            <a href="https://x.com/ton-handle">Profil X (Twitter) de Mimae</a>
+          <li class="social__item">
+            <a class="social__link" href="https://x.com/ton-handle"
+              >Profil X (Twitter) de Mimae</a
+            >
           </li>
         </ul>
       </nav>
-      <p>© 2025 Portfolio Mimae</p>
+
+      <p class="footer__copy">© 2025 Portfolio Mimae</p>
     </footer>
   </body>
 </html>

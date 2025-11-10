@@ -1,0 +1,312 @@
+/* --------------------------
+   RESET + VARIABLES
+---------------------------*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-base: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-accent: "Newsreader", ui-serif, Georgia, Cambria, "Times New Roman",
+    serif; /* pour citations */
+
+  --color-bg: #fffcf5; /* sable très clair */
+  --color-text: #1c1917; /* stone-900 */
+  --color-muted: #6b7280; /* gray-500 */
+  --color-border: #f1f5f9; /* slate-100 */
+
+  --color-primary: #6d28d9; /* violet-700 */
+  --color-primary-dark: #330f6e; /* violet-800 */
+  --color-accent: #10b981; /* emerald-500 */
+  --radius: 0.5rem;
+  --spacing-section: 4rem;
+}
+
+/* Dark auto (préférence système) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0b1220; /* ardoise très foncé */
+    --color-text: #f1f5f9; /* très clair */
+    --color-muted: #94a3b8; /* slate-400 */
+    --color-border: #1f2937; /* gris foncé */
+    /* on garde tes primaires : elles restent lisibles sur fond sombre */
+  }
+}
+
+/* --------------------------
+   GLOBAL STYLES
+---------------------------*/
+body.portfolio {
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+/* gradient + halo doux */
+/* body {
+  background:
+    radial-gradient(
+      circle at 35% 25%,
+      rgba(109, 40, 217, 0.12),
+      transparent 55%
+    ),
+    linear-gradient(
+      160deg,
+      #FFFCF5 0%,
+      #FFF9EE 60%,
+      #FFFCF5 100%
+    );
+} */
+
+/* halo très fin + texture grain */
+/* body {
+  background:
+    radial-gradient(
+      circle at 35% 25%,
+      rgba(109, 40, 217, 0.10),
+      transparent 60%
+    ),
+    linear-gradient(160deg, #FFFCF5 0%, #FFF9EE 60%, #FFFCF5 100%),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="1" cy="1" r=".5" fill="rgba(0,0,0,0.035)" /></svg>');
+  background-size: cover, cover, 4px 4px;
+} */
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: -999px;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+.portfolio__main{
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: blue;
+
+}
+/* --------------------------
+   HEADER
+---------------------------*/
+.header {
+  /*header fixe en heaut*/
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; */
+  /*header sticky*/
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7f9fc;
+  border-bottom: 1px solid var(--color-border);
+}
+/* body {
+  padding-top: 80px; /*A ajuster suivant la heauteur du header pour un header fixed */
+
+
+
+
+.header__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* Navigation */
+.nav__list {
+  display: flex;
+  gap: 1.2rem;
+  list-style: none;
+}
+
+.nav__link {
+  font-weight: 500;
+}
+.nav__link:hover {
+  color: var(--color-primary-dark);
+}
+
+/* --------------------------
+   SECTIONS
+---------------------------*/
+section {
+  padding: var(--spacing-section) 2rem;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+/* About */
+.about__title,
+.projects__title,
+.contact__title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.about__text {
+  margin: 1rem 0 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* Quote */
+.quote {
+  border-left: 4px solid var(--color-primary);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--color-muted);
+}
+
+.quote__cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* --------------------------
+   PROJECTS SECTION
+---------------------------*/
+.projects__list {
+  display: grid;
+  gap: 2rem;
+  list-style: none;
+}
+
+.project-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.project-card__title {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.project-card__description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--color-muted);
+}
+
+/* --------------------------
+   CONTACT FORM
+---------------------------*/
+.form__field {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__label {
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.form__input,
+.form__textarea {
+  padding: 0.7rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  font-size: 1rem;
+}
+
+.form__input:focus,
+.form__textarea:focus {
+  outline: 2px solid var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.form__status {
+  margin-top: 0.7rem;
+  color: var(--color-primary-dark);
+}
+
+/* Button */
+.btn {
+  padding: 0.8rem 1.4rem;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.btn--primary:hover {
+  background: var(--color-primary-dark);
+}
+
+/* --------------------------
+   FOOTER
+---------------------------*/
+.footer {
+  background: #f7f9fc;
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+.social__list {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.footer__copy {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* --------------------------
+   RESPONSIVE
+---------------------------*/
+@media (max-width: 700px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
