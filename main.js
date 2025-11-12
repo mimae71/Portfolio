@@ -79,4 +79,11 @@ const observer = new IntersectionObserver(handleIntersection, observerOptions);
 sections.forEach(section => observer.observe(section));
 
 
+// Gestion du formulaire de contact
+const form = document.querySelector(".js-btn-submit").closest("form")
+form.addEventListener("submit", handleSubmit)
 
+function handleSubmit(e) {
+  e.preventDefault()
+  alert("Merci! Votre message a été envoyé")
+}
