@@ -309,6 +309,33 @@ section {
 .btn--primary:hover {
   background: var(--color-primary-dark);
 }
+/* --------------------------
+   RETOUR EN HAUT
+---------------------------*/
+#scrollTopBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* display: none;  */
+  /*Masqué par défaut */
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#scrollTopBtn.show{
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
 
 /* --------------------------
    FOOTER
