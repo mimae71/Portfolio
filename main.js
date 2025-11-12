@@ -69,7 +69,7 @@ function handleIntersection(entries) {
 
 // --- Création de l'observateur ---
 const observerOptions = {
-  threshold: 0.4, // section visible à 60%
+  threshold: 0.6, // section visible à 60%
   rootMargin: "-80px 0px 0px 0px" // ajustement pour le décalage du header
 };
 
@@ -81,9 +81,28 @@ sections.forEach(section => observer.observe(section));
 
 // Gestion du formulaire de contact
 const form = document.querySelector(".js-btn-submit").closest("form")
+const formStatus = form.querySelector(".form__status")
+
 form.addEventListener("submit", handleSubmit)
 
 function handleSubmit(e) {
   e.preventDefault()
-  alert("Merci! Votre message a été envoyé")
+  formStatus.hidden=false; 
+  form.reset()
+  // alert("Merci! Votre message a été envoyé")
 }
+
+
+// Gestion du bouton "Afficher plus" dans la section Projets
+const btnShowMore = document.getElementById("btn-show-more");
+const extraProjects = document.getElementById("extra");
+
+btnShowMore.addEventListener("click", () => {
+  // const isExpanded = btnShowMore.getAttribute("aria-expanded") === "true";
+  // btnShowMore.setAttribute("aria-expanded", String(!isExpanded));
+  // extraProjects.hidden = isExpanded;
+  const isOpen = extraProjects.hasAttribute("hidden") === false;
+  extraProjects.toggleAttribute("hidden");
+  btnShowMore.setAttribute("aria-expanded", String(!isOpen));
+  btnShowMore.textContent = isOpen ? "Afficher plus" : "Afficher moins";
+});

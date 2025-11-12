@@ -211,7 +211,7 @@ section {
   padding: var(--spacing-section) 2rem;
   max-width: 900px;
   margin-inline: auto;
-  min-height: 200vh /*pour les tests*/;
+  /* min-height: 200vh; /*pour les tests*/
 }
 
 /* About */
@@ -312,7 +312,7 @@ section {
 
 .form__status {
   margin-top: 0.7rem;
-  color: var(--color-primary-dark);
+  color: var(--color-accent);
 }
 
 /* Button */

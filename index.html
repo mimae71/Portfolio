@@ -119,14 +119,14 @@
               >
             </article>
           </li>
+          <button id="btn-show-more" class="btn btn--primary" aria-controls="extra" aria-expanded="false">Afficher plus</button>
           <li class="projects__item">
-            <details class="project">
-              <summary>Afficher plus</summary>
-              <article class="project-card">
-                <h3>Projet secret 👀</h3>
-                <p>Un projet top secret à venir…</p>
-              </article>
-            </details>
+             <article class="project-card project-card--secret" id="extra" hidden>
+              <h3 class="project-card__title">Projet secret 👀</h3>
+              <p class="project-card__description">
+                Un projet top secret à venir…
+              </p>
+            </article>
           </li>
         </ul>
       </section>
@@ -183,8 +183,8 @@
             Envoyer
           </button>
 
-          <p class="form__status" role="status" aria-live="polite">
-            “Message envoyé”.
+          <p class="form__status" role="status" aria-live="polite" hidden>
+            “Message envoyé ✅”.
           </p>
         </form>
       </section>
