@@ -57,11 +57,16 @@ function updateActiveLink(visibleSectionId) {
 }
 
 // --- Fonction : callback de l'observateur ---
+const navAnnouncer = document.getElementById("nav-announcer");
+
 function handleIntersection(entries) {
   
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const sectionId = entry.target.id;
+
+      navAnnouncer.textContent = `Section ${sectionId} affichée`;
+
       updateActiveLink(sectionId);
     }
   });
@@ -95,14 +100,23 @@ function handleSubmit(e) {
 
 // Gestion du bouton "Afficher plus" dans la section Projets
 const btnShowMore = document.getElementById("btn-show-more");
-const extraProjects = document.getElementById("extra");
+const extraWrapper = document.getElementById("extra-wrapper");
+const announcer = document.getElementById("projects-announcer");
 
 btnShowMore.addEventListener("click", () => {
-  // const isExpanded = btnShowMore.getAttribute("aria-expanded") === "true";
-  // btnShowMore.setAttribute("aria-expanded", String(!isExpanded));
-  // extraProjects.hidden = isExpanded;
-  const isOpen = extraProjects.hasAttribute("hidden") === false;
-  extraProjects.toggleAttribute("hidden");
+  const isOpen = !extraWrapper.hasAttribute("hidden");
+
+  // Toggle de l'affichage
+  extraWrapper.toggleAttribute("hidden");
+
+  // Mise à jour ARIA
   btnShowMore.setAttribute("aria-expanded", String(!isOpen));
+
+  // Texte du bouton
   btnShowMore.textContent = isOpen ? "Afficher plus" : "Afficher moins";
+
+  // Annonce pour lecteur d’écran
+  announcer.textContent = isOpen
+    ? "Projet masqué"
+    : "Nouveau projet affiché";
 });
