@@ -1,0 +1,49 @@
+/* palette 1 Neo slate */
+:root {
+  --font-base: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-accent: inherit; /* on reste sobre, une seule police */
+
+  --color-bg: #F8FAFC;           /* slate-50 */
+  --color-text: #0F172A;         /* slate-900 */
+  --color-muted: #64748B;        /* slate-500 */
+  --color-border: #E2E8F0;       /* slate-200 */
+
+  --color-primary: #2563EB;      /* blue-600 */
+  --color-primary-dark: #1E40AF; /* blue-800 */
+  --color-accent: #06B6D4;       /* cyan-500 */
+}
+
+/* palette 2 Warm stone */
+
+:root {
+  --font-base: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-accent: inherit;
+
+  --color-bg: #FAFAF9;           /* stone-50 */
+  --color-text: #0C0A09;         /* stone-950 */
+  --color-muted: #78716C;        /* stone-500 */
+  --color-border: #E7E5E4;       /* stone-200 */
+
+  --color-primary: #C2410C;      /* orange-700 (meilleur contraste) */
+  --color-primary-dark: #9A3412; /* orange-800 */
+  --color-accent: #0EA5E9;       /* sky-500 */
+}
+
+
+
+
+/* palette 3 Stand aubergine */
+
+:root {
+  --font-base: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-accent: "Newsreader", ui-serif, Georgia, Cambria, "Times New Roman", serif; /* pour citations */
+
+  --color-bg: #FFFCF5;          /* sable très clair */
+  --color-text: #1C1917;        /* stone-900 */
+  --color-muted: #6B7280;       /* gray-500 */
+  --color-border: #F1F5F9;      /* slate-100 */
+
+  --color-primary: #6D28D9;     /* violet-700 */
+  --color-primary-dark: #5B21B6;/* violet-800 */
+  --color-accent: #10B981;      /* emerald-500 */
+}

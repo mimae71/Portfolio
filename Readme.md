@@ -1,6 +1,6 @@
-# Portfolio — Semaine 0 : Jour 1
+# Portfolio 
 
-**Objectif :** Créer une page portfolio en HTML sémantique, accessible et structurée sans CSS.
+**Objectif :** Créer une page portfolio 
 
 ## 🔧 Structure du projet
 - `index.html` → Page principale (structure & contenu)
@@ -19,8 +19,18 @@
 ## 🌐 Démo
 🔗 [Voir la page en ligne](https://mimae71.github.io/Portfolio/)
 
-## 🧠 Bilan personnel
-Ajoute ici quelques réflexions :
-- Ce que j’ai bien compris aujourd’hui
-- Ce qui m’a posé problème
-- Ce que je veux revoir ou automatiser demain
+
+## Corrections à apporter 
+Scroll:
+- Tenir compte de la hauteur du header sticky qui varie suivant l'écran
+Menu dynamique
+- Supprimer le underline au hover qui s'ajoute à l'animation
+Afficher projet secret
+- Fixer la taille  du bouton
+- Prévoir une animation plus douce
+Header :
+-a rendre transparent après le scroll
+- Ajout d'un bouton mode dark
+Sections : 
+- Ajouter compétences
+- Ajouter Parcours
