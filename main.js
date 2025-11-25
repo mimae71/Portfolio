@@ -85,17 +85,106 @@ sections.forEach(section => observer.observe(section));
 
 
 // Gestion du formulaire de contact
-const form = document.querySelector(".js-btn-submit").closest("form")
-const formStatus = form.querySelector(".form__status")
+const form = document.querySelector(".contact__form");
+const formStatus = document.querySelector("#form-status");
 
-form.addEventListener("submit", handleSubmit)
+// Récupération des champs
+const inputNom = document.querySelector("#nom");
+const inputEmail = document.querySelector("#email");
+const inputMessage = document.querySelector("#message");
+
+// Récupération des zones d'erreur
+const errorNom = document.querySelector("#nom-error");
+const errorEmail = document.querySelector("#email-error");
+const errorMessage = document.querySelector("#message-error");
+
+form.addEventListener("submit", handleSubmit);
 
 function handleSubmit(e) {
-  e.preventDefault()
-  formStatus.hidden=false; 
-  form.reset()
-  // alert("Merci! Votre message a été envoyé")
+  e.preventDefault();
+
+  // On reset les erreurs avant de revérifier
+  clearErrors();
+
+  let isValid = true;
+  let firstInvalidField = null;
+
+  // --- Validation Nom ---
+  if (!inputNom.value.trim()) {
+    showError(inputNom, errorNom, "Le nom est requis.");
+    isValid = false;
+    firstInvalidField ??= inputNom;
+  } else if (inputNom.value.trim().length < 2) {
+    showError(inputNom, errorNom, "Le nom doit contenir au moins 2 caractères.");
+    isValid = false;
+    firstInvalidField ??= inputNom;
+  }
+
+  // --- Validation Email ---
+  if (!inputEmail.value.trim()) {
+    showError(inputEmail, errorEmail, "L’e-mail est requis.");
+    isValid = false;
+    firstInvalidField ??= inputEmail;
+  } else if (!isValidEmail(inputEmail.value.trim())) {
+    showError(inputEmail, errorEmail, "Veuillez saisir une adresse e-mail valide.");
+    isValid = false;
+    firstInvalidField ??= inputEmail;
+  }
+
+  // --- Validation Message ---
+  if (!inputMessage.value.trim()) {
+    showError(inputMessage, errorMessage, "Le message est requis.");
+    isValid = false;
+    firstInvalidField ??= inputMessage;
+  } else if (inputMessage.value.trim().length < 10) {
+    showError(
+      inputMessage,
+      errorMessage,
+      "Votre message doit contenir au moins 10 caractères."
+    );
+    isValid = false;
+    firstInvalidField ??= inputMessage;
+  }
+
+  if (!isValid) {
+    // Focus sur le premier champ en erreur (clavier + SR)
+    firstInvalidField.focus();
+    formStatus.textContent = ""; // pas de message global si erreurs
+    return;
+  }
+
+  // Si tout est valide : message de succès
+  formStatus.textContent =
+    "Message envoyé ✅ Merci pour votre contact.";
+  formStatus.setAttribute("tabindex", "-1");
+  formStatus.focus();
+
+  form.reset();
 }
+
+// --- Fonctions utilitaires ---
+
+function clearErrors() {
+  // On enlève aria-invalid et on vide les messages d'erreur
+  [inputNom, inputEmail, inputMessage].forEach((field) => {
+    field.removeAttribute("aria-invalid");
+  });
+
+  [errorNom, errorEmail, errorMessage].forEach((el) => {
+    el.textContent = "";
+  });
+}
+
+function showError(field, errorElement, message) {
+  field.setAttribute("aria-invalid", "true");
+  errorElement.textContent = message;
+}
+
+function isValidEmail(value) {
+  // Regex simple mais suffisante pour un formulaire classique
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
 
 
 // Gestion du bouton "Afficher plus" dans la section Projets

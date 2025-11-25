@@ -67,9 +67,9 @@
 
       <section id="projects" class="projects" aria-labelledby="titre-projets">
         <h2 id="titre-projets" class="projects__title">Projets</h2>
+        <div id="projects-announcer" aria-live="polite" class="sr-only"></div>
 
         <ul class="projects__list">
-          <div id="projects-announcer" aria-live="polite" class="sr-only"></div>
 
           <li class="projects__item">
             <article class="project-card project-card--tasks">
@@ -198,63 +198,99 @@
         </ul>
       </section>
 
-      <section id="contact" class="contact" aria-labelledby="titre-contact">
-        <h2 id="titre-contact" class="contact__title">Contactez-moi</h2>
+<section id="contact" class="contact" aria-labelledby="titre-contact">
+  <h2 id="titre-contact" class="contact__title">Contactez-moi</h2>
 
-        <form
-          class="contact__form form"
-          action="#"
-          method="post"
-          aria-describedby="contact-help"
-        >
-          <p id="contact-help" class="form__help">
-            Tous les champs sont requis.
-          </p>
+  <form
+    class="contact__form form"
+    action="#"
+    method="post"
+    aria-describedby="contact-help form-status"
+    novalidate
+  >
+    <p id="contact-help" class="form__help">
+      Tous les champs sont requis.
+    </p>
 
-          <div class="form__field">
-            <label class="form__label" for="nom">Nom</label>
-            <input
-              class="form__input"
-              id="nom"
-              name="nom"
-              type="text"
-              autocomplete="name"
-              required
-            />
-          </div>
+    <!-- Champ Nom -->
+    <div class="form__field">
+      <label class="form__label" for="nom">Nom</label>
+      <input
+        class="form__input"
+        id="nom"
+        name="nom"
+        type="text"
+        autocomplete="name"
+        required
+        aria-describedby="nom-help nom-error"
+      />
+      <p id="nom-help" class="form__hint">
+        Indiquez votre nom ou votre pseudonyme.
+      </p>
+      <p
+        id="nom-error"
+        class="form__error"
+        aria-live="polite"
+      ></p>
+    </div>
 
-          <div class="form__field">
-            <label class="form__label" for="email">E-mail</label>
-            <input
-              class="form__input"
-              id="email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              required
-            />
-          </div>
+    <!-- Champ Email -->
+    <div class="form__field">
+      <label class="form__label" for="email">E-mail</label>
+      <input
+        class="form__input"
+        id="email"
+        name="email"
+        type="email"
+        autocomplete="email"
+        required
+        aria-describedby="email-help email-error"
+      />
+      <p id="email-help" class="form__hint">
+        Exemple : nom@exemple.com.
+      </p>
+      <p
+        id="email-error"
+        class="form__error"
+        aria-live="polite"
+      ></p>
+    </div>
 
-          <div class="form__field">
-            <label class="form__label" for="message">Message</label>
-            <textarea
-              class="form__textarea"
-              id="message"
-              name="message"
-              rows="5"
-              required
-            ></textarea>
-          </div>
+    <!-- Champ Message -->
+    <div class="form__field">
+      <label class="form__label" for="message">Message</label>
+      <textarea
+        class="form__textarea"
+        id="message"
+        name="message"
+        rows="5"
+        required
+        aria-describedby="message-help message-error"
+      ></textarea>
+      <p id="message-help" class="form__hint">
+        Expliquez en quelques phrases en quoi je peux vous aider.
+      </p>
+      <p
+        id="message-error"
+        class="form__error"
+        aria-live="polite"
+      ></p>
+    </div>
 
-          <button class="btn btn--primary js-btn-submit" type="submit">
-            Envoyer
-          </button>
+    <button class="btn btn--primary js-btn-submit" type="submit">
+      Envoyer
+    </button>
 
-          <p class="form__status" role="status" aria-live="polite" hidden>
-            “Message envoyé ✅”.
-          </p>
-        </form>
-      </section>
+    <p
+      id="form-status"
+      class="form__status"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></p>
+  </form>
+</section>
+
       <button id="scrollTopBtn">↑</button>
     </main>
 
