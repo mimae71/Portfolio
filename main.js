@@ -84,106 +84,107 @@ const observer = new IntersectionObserver(handleIntersection, observerOptions);
 sections.forEach(section => observer.observe(section));
 
 
-// Gestion du formulaire de contact
+// --- Récupération du formulaire et champ statut ---
 const form = document.querySelector(".contact__form");
 const formStatus = document.querySelector("#form-status");
+const formGlobalError = document.querySelector("#form-global-error");
 
-// Récupération des champs
-const inputNom = document.querySelector("#nom");
-const inputEmail = document.querySelector("#email");
-const inputMessage = document.querySelector("#message");
+// --- Récupération des champs ---
+const fields = {
+  nom: {
+    el: document.querySelector("#nom"),
+    error: document.querySelector("#nom-error"),
+    validate: (value) => {
+      if (!value) return "Le nom est requis.";
+      if (value.length < 2) return "Le nom doit contenir au moins 2 caractères.";
+      return null;
+    },
+  },
+  email: {
+    el: document.querySelector("#email"),
+    error: document.querySelector("#email-error"),
+    validate: (value) => {
+      if (!value) return "L’e-mail est requis.";
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+        return "Veuillez saisir une adresse e-mail valide.";
+      }
+      return null;
+    },
+  },
+  message: {
+    el: document.querySelector("#message"),
+    error: document.querySelector("#message-error"),
+    validate: (value) => {
+      if (!value) return "Le message est requis.";
+      if (value.length < 10) {
+        return "Votre message doit contenir au moins 10 caractères.";
+      }
+      return null;
+    },
+  },
+};
 
-// Récupération des zones d'erreur
-const errorNom = document.querySelector("#nom-error");
-const errorEmail = document.querySelector("#email-error");
-const errorMessage = document.querySelector("#message-error");
+// --- Validation EN TEMPS RÉEL ---
+Object.values(fields).forEach(({ el }) => {
+  el.addEventListener("input", () => validateField(el));
+  el.addEventListener("blur", () => validateField(el));
+});
 
-form.addEventListener("submit", handleSubmit);
-
-function handleSubmit(e) {
+// --- Soumission du formulaire ---
+form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  // On reset les erreurs avant de revérifier
-  clearErrors();
+  clearGlobalMessage();
+  let firstInvalid = null;
+  let hasError = false;
 
-  let isValid = true;
-  let firstInvalidField = null;
+  Object.values(fields).forEach(({ el }) => {
+    const invalid = validateField(el);
+    if (invalid && !firstInvalid) firstInvalid = el;
+    if (invalid) hasError = true;
+  });
 
-  // --- Validation Nom ---
-  if (!inputNom.value.trim()) {
-    showError(inputNom, errorNom, "Le nom est requis.");
-    isValid = false;
-    firstInvalidField ??= inputNom;
-  } else if (inputNom.value.trim().length < 2) {
-    showError(inputNom, errorNom, "Le nom doit contenir au moins 2 caractères.");
-    isValid = false;
-    firstInvalidField ??= inputNom;
-  }
-
-  // --- Validation Email ---
-  if (!inputEmail.value.trim()) {
-    showError(inputEmail, errorEmail, "L’e-mail est requis.");
-    isValid = false;
-    firstInvalidField ??= inputEmail;
-  } else if (!isValidEmail(inputEmail.value.trim())) {
-    showError(inputEmail, errorEmail, "Veuillez saisir une adresse e-mail valide.");
-    isValid = false;
-    firstInvalidField ??= inputEmail;
-  }
-
-  // --- Validation Message ---
-  if (!inputMessage.value.trim()) {
-    showError(inputMessage, errorMessage, "Le message est requis.");
-    isValid = false;
-    firstInvalidField ??= inputMessage;
-  } else if (inputMessage.value.trim().length < 10) {
-    showError(
-      inputMessage,
-      errorMessage,
-      "Votre message doit contenir au moins 10 caractères."
-    );
-    isValid = false;
-    firstInvalidField ??= inputMessage;
-  }
-
-  if (!isValid) {
-    // Focus sur le premier champ en erreur (clavier + SR)
-    firstInvalidField.focus();
-    formStatus.textContent = ""; // pas de message global si erreurs
+  if (hasError) {
+    showGlobalError("Le formulaire contient des erreurs, veuillez vérifier les champs en rouge.");
+    firstInvalid.focus();
     return;
   }
 
-  // Si tout est valide : message de succès
-  formStatus.textContent =
-    "Message envoyé ✅ Merci pour votre contact.";
+  // Si tout est bon →
+  formStatus.textContent = "Message envoyé ✅ Merci pour votre contact.";
   formStatus.setAttribute("tabindex", "-1");
   formStatus.focus();
-
   form.reset();
-}
+});
 
-// --- Fonctions utilitaires ---
+// --- Valide un champ et met à jour les messages/états ---
+function validateField(field) {
+  const { validate, error: errorEl } = fields[field.id];
+  const value = field.value.trim();
+  const errorMessage = validate(value);
 
-function clearErrors() {
-  // On enlève aria-invalid et on vide les messages d'erreur
-  [inputNom, inputEmail, inputMessage].forEach((field) => {
+  if (errorMessage) {
+    field.setAttribute("aria-invalid", "true");
+    errorEl.textContent = errorMessage;
+  } else {
     field.removeAttribute("aria-invalid");
-  });
+    errorEl.textContent = "";
+  }
 
-  [errorNom, errorEmail, errorMessage].forEach((el) => {
-    el.textContent = "";
-  });
+  return errorMessage;
 }
 
-function showError(field, errorElement, message) {
-  field.setAttribute("aria-invalid", "true");
-  errorElement.textContent = message;
+// --- Message global ---
+function showGlobalError(msg) {
+  formGlobalError.hidden = false;
+  formGlobalError.textContent = msg;
 }
 
-function isValidEmail(value) {
-  // Regex simple mais suffisante pour un formulaire classique
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+function clearGlobalMessage() {
+  formGlobalError.hidden = true;
+  formGlobalError.textContent = "";
 }
+
 
 
 

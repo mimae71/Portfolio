@@ -314,6 +314,12 @@ section {
   border-color: var(--color-error, #c0392b);
   outline: 2px solid var(--color-error, #c0392b);
 }
+.form__error-global {
+  color: var(--color-error, #c0392b);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
 .form__field {
   margin-bottom: 1.2rem;
   display: flex;
