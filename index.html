@@ -42,34 +42,75 @@
       <!-- Announce navigation changes to screen readers -->
       <div id="nav-announcer" aria-live="polite" class="sr-only"></div>
 
-      <section id="about" class="about" aria-labelledby="titre-apropos">
-        <div class="container about__inner grid grid--2">
+      <section id="about" class="section hero" aria-labelledby="hero-title">
+        <div class="hero__inner grid grid--2">
           <!-- Colonne texte -->
-          <div class="about__content stack stack--m">
-            <h2 id="titre-apropos" class="about__title">À propos de moi</h2>
-
-            <p class="about__text">
-              Bienvenue sur mon portfolio! Je suis Mimae, un développeur
-              passionné par la création de solutions web innovantes.
+          <div class="hero__content stack stack--m">
+            <p class="hero__eyebrow">
+              Développeur & créateur d’outils numériques
             </p>
 
-            <blockquote class="about__quote quote">
-              <p class="quote__text">
-                Le succès, c’est d’aller d’échec en échec sans perdre son
-                enthousiasme.
-              </p>
-              <cite class="quote__cite">Winston Churchill</cite>
-            </blockquote>
+            <h1 id="hero-title" class="hero__title">
+              Je conçois des outils web modernes pour simplifier le travail des
+              profs. Je transforme les besoins métier en applications web utiles
+              et scalables.
+            </h1>
+
+            <p class="hero__subtitle">
+              Ancien professeur de mathématiques, je développe des applications
+              techniques et accessibles autour de l’éducation, de
+              l’automatisation et de la gestion pédagogique. Mon objectif :
+              créer des solutions concrètes pour les enseignants, établissements
+              et créatifs.
+            </p>
+
+            <div class="hero__actions cluster cluster--start">
+              <a href="#projects" class="btn btn--primary">
+                Voir mes projets
+              </a>
+              <a href="#contact" class="btn hero__btn-secondary">
+                Me contacter
+              </a>
+            </div>
+
+            <ul
+              class="hero__tags cluster cluster--start"
+              aria-label="Technologies principales"
+            >
+              <li class="hero__tag">JavaScript</li>
+              <li class="hero__tag">React</li>
+              <li class="hero__tag">Node.js</li>
+              <li class="hero__tag">n8n & automatisation</li>
+              <li class="hero__tag">UX/UI</li>
+              <li class="hero__tag">Accessibilité</li>
+              <li class="hero__tag">EdTech</li>
+            </ul>
           </div>
 
-          <!-- Colonne image -->
-          <div class="about__media stack stack--s">
-            <img
-              class="about__image"
-              src="./ressources/profil.png"
-              alt="portrait de Mimae"
-            />
-          </div>
+          <!-- Colonne "carte" profil / focus -->
+          <aside class="hero__card stack stack--s" aria-label="Résumé rapide">
+            <p class="hero__card-label">Focus actuel</p>
+            <h2 class="hero__card-title">
+              Full-stack JavaScript & automatisation
+            </h2>
+            <p class="hero__card-text">
+              Je construis des applications utiles : gestion de classe,
+              optimisation de tâches chronophages, synchronisation de données
+              (École Directe ↔ outils tiers), et interfaces modernes
+              accessibles.gestion de tâches métiers, dashboards intelligents,
+              assistants interactifs.
+            </p>
+            <ul class="hero__meta stack stack--s">
+              <li>
+                <span class="hero__meta-label">Profil</span> Ancien prof de
+                maths
+              </li>
+              <li>
+                <span class="hero__meta-label">Domaines</span> Éducation, jeux
+                de société, TCG
+              </li>
+            </ul>
+          </aside>
         </div>
       </section>
 
@@ -227,109 +268,96 @@
       </section>
 
       <section id="contact" class="contact" aria-labelledby="titre-contact">
-  <div class="container contact__inner stack stack--m">
-    <h2 id="titre-contact" class="contact__title">Contactez-moi</h2>
+        <div class="container contact__inner stack stack--m">
+          <h2 id="titre-contact" class="contact__title">Contactez-moi</h2>
 
-    <form
-      class="contact__form form"
-      action="#"
-      method="post"
-      aria-describedby="contact-help form-status"
-      novalidate
-    >
-      <p id="contact-help" class="form__help">
-        Tous les champs sont requis.
-      </p>
+          <form
+            class="contact__form form"
+            action="#"
+            method="post"
+            aria-describedby="contact-help form-status"
+            novalidate
+          >
+            <p id="contact-help" class="form__help">
+              Tous les champs sont requis.
+            </p>
 
-      <!-- 🔴 Erreur globale -->
-      <p
-        id="form-global-error"
-        class="form__error-global"
-        role="alert"
-        aria-live="assertive"
-        hidden
-      ></p>
+            <!-- 🔴 Erreur globale -->
+            <p
+              id="form-global-error"
+              class="form__error-global"
+              role="alert"
+              aria-live="assertive"
+              hidden
+            ></p>
 
-      <!-- Champ Nom -->
-      <div class="form__field">
-        <label class="form__label" for="nom">Nom</label>
-        <input
-          class="form__input"
-          id="nom"
-          name="nom"
-          type="text"
-          autocomplete="name"
-          required
-          aria-describedby="nom-help nom-error"
-        />
-        <p id="nom-help" class="form__hint">
-          Indiquez votre nom ou votre pseudonyme.
-        </p>
-        <p
-          id="nom-error"
-          class="form__error"
-          aria-live="polite"
-        ></p>
-      </div>
+            <!-- Champ Nom -->
+            <div class="form__field">
+              <label class="form__label" for="nom">Nom</label>
+              <input
+                class="form__input"
+                id="nom"
+                name="nom"
+                type="text"
+                autocomplete="name"
+                required
+                aria-describedby="nom-help nom-error"
+              />
+              <p id="nom-help" class="form__hint">
+                Indiquez votre nom ou votre pseudonyme.
+              </p>
+              <p id="nom-error" class="form__error" aria-live="polite"></p>
+            </div>
 
-      <!-- Champ Email -->
-      <div class="form__field">
-        <label class="form__label" for="email">E-mail</label>
-        <input
-          class="form__input"
-          id="email"
-          name="email"
-          type="email"
-          autocomplete="email"
-          required
-          aria-describedby="email-help email-error"
-        />
-        <p id="email-help" class="form__hint">
-          Exemple : nom@exemple.com.
-        </p>
-        <p
-          id="email-error"
-          class="form__error"
-          aria-live="polite"
-        ></p>
-      </div>
+            <!-- Champ Email -->
+            <div class="form__field">
+              <label class="form__label" for="email">E-mail</label>
+              <input
+                class="form__input"
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                aria-describedby="email-help email-error"
+              />
+              <p id="email-help" class="form__hint">
+                Exemple : nom@exemple.com.
+              </p>
+              <p id="email-error" class="form__error" aria-live="polite"></p>
+            </div>
 
-      <!-- Champ Message -->
-      <div class="form__field">
-        <label class="form__label" for="message">Message</label>
-        <textarea
-          class="form__textarea"
-          id="message"
-          name="message"
-          rows="5"
-          required
-          aria-describedby="message-help message-error"
-        ></textarea>
-        <p id="message-help" class="form__hint">
-          Expliquez en quelques phrases en quoi je peux vous aider.
-        </p>
-        <p
-          id="message-error"
-          class="form__error"
-          aria-live="polite"
-        ></p>
-      </div>
+            <!-- Champ Message -->
+            <div class="form__field">
+              <label class="form__label" for="message">Message</label>
+              <textarea
+                class="form__textarea"
+                id="message"
+                name="message"
+                rows="5"
+                required
+                aria-describedby="message-help message-error"
+              ></textarea>
+              <p id="message-help" class="form__hint">
+                Expliquez en quelques phrases en quoi je peux vous aider.
+              </p>
+              <p id="message-error" class="form__error" aria-live="polite"></p>
+            </div>
 
-      <button class="btn btn--primary js-btn-submit" type="submit">
-        Envoyer
-      </button>
+            <button class="btn btn--primary js-btn-submit" type="submit">
+              Envoyer
+            </button>
 
-      <p
-        id="form-status"
-        class="form__status"
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-      ></p>
-    </form>
-  </div>
-</section>
-
+            <p
+              id="form-status"
+              class="form__status"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            ></p>
+          </form>
+        </div>
+      </section>
 
       <button id="scrollTopBtn">↑</button>
     </main>

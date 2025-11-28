@@ -407,89 +407,156 @@ section {
   /* min-height: 200vh; /*pour les tests*/
 }
 
-/* =========================
-   SECTION À PROPOS – TOKENS
-=========================*/
+/* ======================================================
+   HERO
+====================================================== */
 
-.about__inner {
-  align-items: start;
+.hero {
+  position: relative;
+  overflow: hidden; /* évite que le décor déborde si on a du radius plus tard */
 }
 
-/* Sur mobile, on laisse la grid faire 1 colonne.
-   .grid--2 gère déjà l’adaptatif ; pas besoin de media query ici. */
-
-/* Titre "À propos" */
-.about__title {
-  font-family: var(--font-heading);
-  font-size: var(--font-size-h2);
-  margin: 0; /* spacing géré par .stack */
+/* Légère ambiance en arrière-plan */
+.hero__inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+      circle at 0% 0%,
+      rgba(109, 40, 217, 0.16),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(16, 185, 129, 0.18),
+      transparent 55%
+    );
+  opacity: 0.7;
+  z-index: -1;
+  border-radius: inherit;
 }
 
-/* Paragraphe d’intro */
+.hero__inner {
+  align-items: center;
+  --grid-gap: var(--space-xl); /* espace entre texte et carte */
+  /* 🟣 nouveau : padding interne */
+  padding: clamp(2rem, 4vw, 3rem);
 
-.about__text {
-  font-family: var(--font-body);
-  font-size: var(--font-size-body-lg);
-  color: var(--color-text);
-  margin: 0; /* spacing géré par .stack */
-}
-
-/* Image de profil */
-.about__image {
-  width: 220px;
-  max-width: 100%;
+  /* optionnel mais joli : arrondir légèrement l’ensemble du hero */
   border-radius: var(--radius-l);
+}
+
+/* Colonne texte */
+.hero__content {
+  max-width: 36rem;
+}
+
+.hero__eyebrow {
+  font-size: var(--font-size-small);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h1);
+}
+
+.hero__subtitle {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-text-muted);
+}
+
+/* Actions */
+.hero__actions {
+  margin-top: var(--space-s);
+}
+
+.hero__btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  box-shadow: none;
+}
+.hero__btn-secondary:hover,
+.hero__btn-secondary:focus-visible {
+  background: var(--color-surface-subtle);
+  box-shadow: var(--shadow-s);
+  transform: translateY(-1px);
+}
+
+/* Tags techno */
+.hero__tags {
+  margin-top: var(--space-s);
+  flex-wrap: wrap;
+  list-style: none; /* enlève les puces */
+  padding: 0; /* enlève l’indent à gauche */
+  margin-left: 0; /* sécurité */
+}
+
+.hero__tag {
+  font-size: var(--font-size-small);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+
+  background: var(--color-surface-subtle);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+
+  box-shadow: var(--shadow-xs);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.hero__tag:hover,
+.hero__tag:focus-visible {
+  background: var(--color-surface);
+}
+
+/* Colonne carte profil */
+.hero__card {
+  padding: var(--space-m);
+  border-radius: var(--radius-l);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
   box-shadow: var(--shadow-m);
 }
 
-/* Bloc citation empilé comme les autres */
-.about__quote {
-  margin: 0; /* spacing géré par .stack */
-}
-
-/* Style de la citation */
-.quote {
-  position: relative;
-  padding: var(--space-m);
-  padding-left: calc(var(--space-m) + var(--space-s));
-  border-radius: var(--radius-m);
-  background-color: var(--color-surface-subtle);
-  border: 1px solid var(--color-border);
+.hero__card-label {
+  font-size: var(--font-size-small);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
   color: var(--color-text-muted);
-  font-family: var(--font-body);
+}
+
+.hero__card-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h3);
+}
+
+.hero__card-text {
   font-size: var(--font-size-body);
-
-  box-shadow: var(--shadow-xs);
+  color: var(--color-text-muted);
 }
 
-/* Barre verticale / accent à gauche */
-.quote::before {
-  content: "";
-  position: absolute;
-  left: var(--space-s);
-  top: var(--space-s);
-  bottom: var(--space-s);
-  width: 3px;
-  border-radius: 999px;
-  background: linear-gradient(
-    180deg,
-    var(--color-primary),
-    var(--color-accent)
-  );
-}
-
-/* Texte de citation */
-.quote__text {
+.hero__meta {
+  list-style: none;
   margin: 0;
+  padding: 0;
+  font-size: var(--font-size-small);
+  color: var(--color-text);
 }
 
-/* Auteur de la citation */
-.quote__cite {
-  display: block;
-  margin-top: var(--space-xs);
+.hero__meta-label {
   font-weight: 600;
-  font-style: normal;
-  color: var(--color-text);
+}
+
+/* RESPONSIVE HERO */
+@media (max-width: 768px) {
+  .hero__inner {
+    gap: var(--space-l);
+  }
 }
 
 /* =========================
