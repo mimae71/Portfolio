@@ -7,6 +7,7 @@
       name="description"
       content="Portfolio développeur – Projets, compétences et contact."
     />
+    <meta name="theme-color" content="#6d28d9" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -38,266 +39,297 @@
     </header>
 
     <main id="main" class="portfolio__main">
-
       <!-- Announce navigation changes to screen readers -->
-  <div id="nav-announcer" aria-live="polite" class="sr-only"></div>
-  
+      <div id="nav-announcer" aria-live="polite" class="sr-only"></div>
+
       <section id="about" class="about" aria-labelledby="titre-apropos">
-        <h2 id="titre-apropos" class="about__title">À propos de moi</h2>
+        <div class="container about__inner grid grid--2">
+          <!-- Colonne texte -->
+          <div class="about__content stack stack--m">
+            <h2 id="titre-apropos" class="about__title">À propos de moi</h2>
 
-        <p class="about__text">
-          Bienvenue sur mon portfolio! Je suis Mimae, un développeur passionné
-          par la création de solutions web innovantes.
-        </p>
+            <p class="about__text">
+              Bienvenue sur mon portfolio! Je suis Mimae, un développeur
+              passionné par la création de solutions web innovantes.
+            </p>
 
-        <img
-          class="about__image"
-          src="./ressources/profil.png"
-          alt="portrait de Mimae"
-        />
+            <blockquote class="about__quote quote">
+              <p class="quote__text">
+                Le succès, c’est d’aller d’échec en échec sans perdre son
+                enthousiasme.
+              </p>
+              <cite class="quote__cite">Winston Churchill</cite>
+            </blockquote>
+          </div>
 
-        <blockquote class="about__quote quote">
-          <p class="quote__text">
-            Le succès, c’est d’aller d’échec en échec sans perdre son
-            enthousiasme.
-          </p>
-          <cite class="quote__cite">Winston Churchill</cite>
-        </blockquote>
+          <!-- Colonne image -->
+          <div class="about__media stack stack--s">
+            <img
+              class="about__image"
+              src="./ressources/profil.png"
+              alt="portrait de Mimae"
+            />
+          </div>
+        </div>
       </section>
 
       <section id="projects" class="projects" aria-labelledby="titre-projets">
-        <h2 id="titre-projets" class="projects__title">Projets</h2>
-        <div id="projects-announcer" aria-live="polite" class="sr-only"></div>
+        <div class="container projects__inner stack stack--m">
+          <!-- Titre + announcer -->
+          <div class="stack stack--s">
+            <h2 id="titre-projets" class="projects__title">Projets</h2>
+            <div
+              id="projects-announcer"
+              aria-live="polite"
+              class="sr-only"
+            ></div>
+          </div>
 
-        <ul class="projects__list">
+          <!-- Grille de cartes -->
+          <ul class="projects__list grid grid--3">
+            <li class="projects__item">
+              <article class="project-card project-card--tasks">
+                <h3 class="project-card__title">
+                  Application de gestion de tâches
+                </h3>
+                <p class="project-card__description">
+                  Une application web permettant aux utilisateurs de gérer leurs
+                  tâches quotidiennes avec des fonctionnalités de création,
+                  modification et suppression de tâches.
+                </p>
+                <a
+                  class="project-card__link"
+                  aria-disabled="true"
+                  tabindex="-1"
+                  rel="noopener noreferrer"
+                >
+                  Ouvrir le projet "gestion des tâches" — Démo à venir.
+                </a>
+              </article>
+            </li>
 
-          <li class="projects__item">
-            <article class="project-card project-card--tasks">
-              <h3 class="project-card__title">
-                Application de gestion de tâches
-              </h3>
-              <p class="project-card__description">
-                Une application web permettant aux utilisateurs de gérer leurs
-                tâches quotidiennes avec des fonctionnalités de création,
-                modification et suppression de tâches.
-              </p>
-              <a
-                class="project-card__link"
-                aria-disabled="true"
-                tabindex="-1"
-                rel="noopener noreferrer"
-                >Ouvir le projet "gestion des tâches" Demo a venir.</a
-              >
-            </article>
-          </li>
+            <li class="projects__item">
+              <article class="project-card project-card--boardgames">
+                <h3 class="project-card__title">
+                  Application de gestion de collection de jeux de société
+                </h3>
+                <p class="project-card__description">
+                  Une application web permettant aux passionnés de jeux de
+                  société de gérer, trier leurs collections tout en récupérant
+                  des données.
+                </p>
+                <a
+                  class="project-card__link"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ouvrir le projet "gestion de collection de jeux de société".
+                </a>
+              </article>
+            </li>
 
-          <li class="projects__item">
-            <article class="project-card project-card--boardgames">
-              <h3 class="project-card__title">
-                Application de gestion de collection de jeux de société
-              </h3>
-              <p class="project-card__description">
-                Une application web permettant aux passionnés de jeux de société
-                de gérer, trier leurs collections tout en récupérant des
-                données.
-              </p>
-              <a
-                class="project-card__link"
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Ouvrir le projet "gestion de collection de jeux de société".</a
-              >
-            </article>
-          </li>
+            <li class="projects__item">
+              <article class="project-card project-card--author-site">
+                <h3 class="project-card__title">Site auteur</h3>
+                <p class="project-card__description">
+                  Site d'une autrice de romans talentueuse.
+                </p>
+                <a
+                  class="project-card__link"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ouvrir le site "autrice de romans à succès".
+                </a>
+              </article>
+            </li>
 
-          <li class="projects__item">
-            <article class="project-card project-card--author-site">
-              <h3 class="project-card__title">Site auteur</h3>
-              <p class="project-card__description">
-                Site d'une autrice de romans talentueuse.
-              </p>
-              <a
-                class="project-card__link"
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Ouvrir le site "autrice de romans à succès".</a
+            <li class="projects__item">
+              <article class="project-card project-card--teacher-app">
+                <h3 class="project-card__title">
+                  Application gestion de classe
+                </h3>
+                <p class="project-card__description">
+                  Petite application pour enseignantes et enseignants, permet de
+                  gérer aisément le plan de classe.
+                </p>
+                <a
+                  class="project-card__link"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ouvrir le projet "gestion de classe".
+                </a>
+              </article>
+            </li>
+
+            <li class="projects__item">
+              <article class="project-card project-card--ent">
+                <h3 class="project-card__title">ENT collège</h3>
+                <p class="project-card__description">
+                  Gestion des notes, des emplois du temps, et de la
+                  communication avec les familles.
+                </p>
+                <a
+                  class="project-card__link"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ouvrir le projet "ENT collège".
+                </a>
+              </article>
+            </li>
+
+            <li class="projects__item">
+              <article class="project-card project-card--app-tcg">
+                <h3 class="project-card__title">Application TCG</h3>
+                <p class="project-card__description">
+                  Gestion de collection de cartes, construction de decks,
+                  spéculation, suivi des cours.
+                </p>
+                <a
+                  class="project-card__link"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ouvrir le projet "TCG".
+                </a>
+              </article>
+            </li>
+
+            <li class="projects__item projects__item--button">
+              <button
+                id="btn-show-more"
+                class="btn btn--primary"
+                aria-controls="extra"
+                aria-expanded="false"
+                type="button"
               >
-            </article>
-          </li>
-          <li class="projects__item">
-            <article class="project-card project-card--teacher-app">
-              <h3 class="project-card__title">Application gestion de classe</h3>
-              <p class="project-card__description">
-                Petite application pour enseigants, permet de gérer aisément
-                plan de classe......
-              </p>
-              <a
-                class="project-card__link"
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Ouvrir le projet "gestion de classe".</a
-              >
-            </article>
-          </li>
-          <li class="projects__item">
-            <article class="project-card project-card--ent">
-              <h3 class="project-card__title">ENT collège</h3>
-              <p class="project-card__description">
-                Gestion des notes, des edt.
-              </p>
-              <a
-                class="project-card__link"
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Ouvrir le projet "ent".</a
-              >
-            </article>
-          </li>
-          <li class="projects__item">
-            <article class="project-card project-card--app-tcg">
-              <h3 class="project-card__title">Application TCG</h3>
-              <p class="project-card__description">
-                Gestion de collection de cartes, construction de decks,
-                spéculation, suivi des cours.
-              </p>
-              <a
-                class="project-card__link"
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Ouvrir le projet "ent".</a
-              >
-            </article>
-          </li>
-          <li class="projects__item projects__item--button">
-            <button
-              id="btn-show-more"
-              class="btn btn--primary"
-              aria-controls="extra"
-              aria-expanded="false"
-              type="button"
-            >
-              Afficher plus
-            </button>
-          </li>
-          <li class="projects__item" id="extra-wrapper" hidden>
-            <article
-              class="project-card project-card--secret"
-              id="extra"
-            >
-              <h3 class="project-card__title">Projet secret 👀</h3>
-              <p class="project-card__description">
-                Un projet top secret à venir…
-              </p>
-            </article>
-          </li>
-        </ul>
+                Afficher plus
+              </button>
+            </li>
+
+            <li class="projects__item" id="extra-wrapper" hidden>
+              <article class="project-card project-card--secret" id="extra">
+                <h3 class="project-card__title">Projet secret 👀</h3>
+                <p class="project-card__description">
+                  Un projet top secret à venir…
+                </p>
+              </article>
+            </li>
+          </ul>
+        </div>
       </section>
 
-<section id="contact" class="contact" aria-labelledby="titre-contact">
-  <h2 id="titre-contact" class="contact__title">Contactez-moi</h2>
+      <section id="contact" class="contact" aria-labelledby="titre-contact">
+  <div class="container contact__inner stack stack--m">
+    <h2 id="titre-contact" class="contact__title">Contactez-moi</h2>
 
-  <form
-    class="contact__form form"
-    action="#"
-    method="post"
-    aria-describedby="contact-help form-status"
-    novalidate
-  >
-    <p id="contact-help" class="form__help">
-      Tous les champs sont requis.
-    </p>
+    <form
+      class="contact__form form"
+      action="#"
+      method="post"
+      aria-describedby="contact-help form-status"
+      novalidate
+    >
+      <p id="contact-help" class="form__help">
+        Tous les champs sont requis.
+      </p>
+
       <!-- 🔴 Erreur globale -->
-  <p
-    id="form-global-error"
-    class="form__error-global"
-    role="alert"
-    aria-live="assertive"
-    hidden
-  ></p>
-
-    <!-- Champ Nom -->
-    <div class="form__field">
-      <label class="form__label" for="nom">Nom</label>
-      <input
-        class="form__input"
-        id="nom"
-        name="nom"
-        type="text"
-        autocomplete="name"
-        required
-        aria-describedby="nom-help nom-error"
-      />
-      <p id="nom-help" class="form__hint">
-        Indiquez votre nom ou votre pseudonyme.
-      </p>
       <p
-        id="nom-error"
-        class="form__error"
-        aria-live="polite"
+        id="form-global-error"
+        class="form__error-global"
+        role="alert"
+        aria-live="assertive"
+        hidden
       ></p>
-    </div>
 
-    <!-- Champ Email -->
-    <div class="form__field">
-      <label class="form__label" for="email">E-mail</label>
-      <input
-        class="form__input"
-        id="email"
-        name="email"
-        type="email"
-        autocomplete="email"
-        required
-        aria-describedby="email-help email-error"
-      />
-      <p id="email-help" class="form__hint">
-        Exemple : nom@exemple.com.
-      </p>
+      <!-- Champ Nom -->
+      <div class="form__field">
+        <label class="form__label" for="nom">Nom</label>
+        <input
+          class="form__input"
+          id="nom"
+          name="nom"
+          type="text"
+          autocomplete="name"
+          required
+          aria-describedby="nom-help nom-error"
+        />
+        <p id="nom-help" class="form__hint">
+          Indiquez votre nom ou votre pseudonyme.
+        </p>
+        <p
+          id="nom-error"
+          class="form__error"
+          aria-live="polite"
+        ></p>
+      </div>
+
+      <!-- Champ Email -->
+      <div class="form__field">
+        <label class="form__label" for="email">E-mail</label>
+        <input
+          class="form__input"
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+          aria-describedby="email-help email-error"
+        />
+        <p id="email-help" class="form__hint">
+          Exemple : nom@exemple.com.
+        </p>
+        <p
+          id="email-error"
+          class="form__error"
+          aria-live="polite"
+        ></p>
+      </div>
+
+      <!-- Champ Message -->
+      <div class="form__field">
+        <label class="form__label" for="message">Message</label>
+        <textarea
+          class="form__textarea"
+          id="message"
+          name="message"
+          rows="5"
+          required
+          aria-describedby="message-help message-error"
+        ></textarea>
+        <p id="message-help" class="form__hint">
+          Expliquez en quelques phrases en quoi je peux vous aider.
+        </p>
+        <p
+          id="message-error"
+          class="form__error"
+          aria-live="polite"
+        ></p>
+      </div>
+
+      <button class="btn btn--primary js-btn-submit" type="submit">
+        Envoyer
+      </button>
+
       <p
-        id="email-error"
-        class="form__error"
+        id="form-status"
+        class="form__status"
+        role="status"
         aria-live="polite"
+        aria-atomic="true"
       ></p>
-    </div>
-
-    <!-- Champ Message -->
-    <div class="form__field">
-      <label class="form__label" for="message">Message</label>
-      <textarea
-        class="form__textarea"
-        id="message"
-        name="message"
-        rows="5"
-        required
-        aria-describedby="message-help message-error"
-      ></textarea>
-      <p id="message-help" class="form__hint">
-        Expliquez en quelques phrases en quoi je peux vous aider.
-      </p>
-      <p
-        id="message-error"
-        class="form__error"
-        aria-live="polite"
-      ></p>
-    </div>
-
-    <button class="btn btn--primary js-btn-submit" type="submit">
-      Envoyer
-    </button>
-
-    <p
-      id="form-status"
-      class="form__status"
-      role="status"
-      aria-live="polite"
-      aria-atomic="true"
-    ></p>
-  </form>
+    </form>
+  </div>
 </section>
+
 
       <button id="scrollTopBtn">↑</button>
     </main>
