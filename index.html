@@ -21,12 +21,12 @@
     <a href="#main" class="skip-link">Aller au contenu</a>
 
     <header class="portfolio__header header">
-      <h1 class="portfolio__title header__title">Portfolio Mimae</h1>
+      <p class="portfolio__title header__title">Portfolio Mimae</p>
 
       <nav class="portfolio__nav nav" aria-label="Navigation principale">
         <ul class="nav__list">
           <li class="nav__item">
-            <a class="nav__link" href="#about">À propos</a>
+            <a class="nav__link" href="#about" aria-current="page">À propos</a>
           </li>
           <li class="nav__item">
             <a class="nav__link" href="#projects">Projets</a>
@@ -51,9 +51,8 @@
             </p>
 
             <h1 id="hero-title" class="hero__title">
-              Je conçois des outils web modernes pour simplifier le travail des
-              profs. Je transforme les besoins métier en applications web utiles
-              et scalables.
+              Je conçois des applications web modernes, simples et efficaces
+              pour répondre aux besoins métier des profs.
             </h1>
 
             <p class="hero__subtitle">
@@ -65,10 +64,10 @@
             </p>
 
             <div class="hero__actions cluster cluster--start">
-              <a href="#projects" class="btn btn--primary">
+              <a href="#projects" class="btn btn--primary btn--lg">
                 Voir mes projets
               </a>
-              <a href="#contact" class="btn hero__btn-secondary">
+              <a href="#contact" class="btn hero__btn-secondary btn-lg">
                 Me contacter
               </a>
             </div>
@@ -79,6 +78,7 @@
             >
               <li class="hero__tag">JavaScript</li>
               <li class="hero__tag">React</li>
+              <li class="hero__tag">TypeScript</li>
               <li class="hero__tag">Node.js</li>
               <li class="hero__tag">n8n & automatisation</li>
               <li class="hero__tag">UX/UI</li>
@@ -114,11 +114,11 @@
         </div>
       </section>
 
-      <section id="projects" class="projects" aria-labelledby="titre-projets">
+      <section section id="projects" class="projects reveal" aria-labelledby="titre-projets">
         <div class="container projects__inner stack stack--m">
           <!-- Titre + announcer -->
           <div class="stack stack--s">
-            <h2 id="titre-projets" class="projects__title">Projets</h2>
+            <h2 id="titre-projets" class="projects__title reveal">Projets</h2>
             <div
               id="projects-announcer"
               aria-live="polite"
@@ -127,7 +127,7 @@
           </div>
 
           <!-- Grille de cartes -->
-          <ul class="projects__list grid grid--3">
+          <ul class="projects__list reveal grid grid--3">
             <li class="projects__item">
               <article class="project-card project-card--tasks">
                 <h3 class="project-card__title">
@@ -138,14 +138,9 @@
                   tâches quotidiennes avec des fonctionnalités de création,
                   modification et suppression de tâches.
                 </p>
-                <a
-                  class="project-card__link"
-                  aria-disabled="true"
-                  tabindex="-1"
-                  rel="noopener noreferrer"
-                >
+                <p class="project-card__link project-card__link--disabled">
                   Ouvrir le projet "gestion des tâches" — Démo à venir.
-                </a>
+                </p>
               </article>
             </li>
 
@@ -269,10 +264,12 @@
 
       <section id="contact" class="contact" aria-labelledby="titre-contact">
         <div class="container contact__inner stack stack--m">
-          <h2 id="titre-contact" class="contact__title">Contactez-moi</h2>
+          <h2 id="titre-contact" class="contact__title reveal">
+            Un projet en tête? Discutons-en.
+          </h2>
 
           <form
-            class="contact__form form"
+            class="contact__form form reveal"
             action="#"
             method="post"
             aria-describedby="contact-help form-status"
@@ -359,38 +356,115 @@
         </div>
       </section>
 
-      <button id="scrollTopBtn">↑</button>
+      <button
+        id="scrollTopBtn"
+        type="button"
+        aria-label="Revenir en haut de la page"
+      >
+        ↑
+      </button>
     </main>
 
-    <footer class="portfolio__footer footer" aria-labelledby="titre-footer">
-      <h2 id="titre-footer" class="footer__title sr-only">
-        Me suivre sur les réseaux sociaux
-      </h2>
+    <footer class="section footer" aria-labelledby="footer-title">
+      <div class="footer__inner container stack stack--m">
+        <!-- Ligne du haut : brand + réseaux -->
+        <div class="footer__top cluster cluster--between">
+          <div class="footer__brand stack stack--s">
+            <p id="footer-title" class="footer__title">
+              Mimae — Développeur web
+            </p>
+            <p class="footer__subtitle">
+              Full-stack JavaScript, automatisation n8n et outils pour
+              l’éducation, les jeux et la création.
+            </p>
+          </div>
 
-      <nav class="footer__social social" aria-label="Réseaux sociaux">
-        <ul class="social__list">
-          <li class="social__item">
-            <a
-              class="social__link"
-              href="https://www.linkedin.com/in/ton-profil"
-              >Profil LinkedIn de Mimae</a
-            >
-          </li>
-          <li class="social__item">
-            <a class="social__link" href="https://github.com/mimae71"
-              >Profil GitHub de Mimae</a
-            >
-          </li>
-          <li class="social__item">
-            <a class="social__link" href="https://x.com/ton-handle"
-              >Profil X (Twitter) de Mimae</a
-            >
-          </li>
-        </ul>
-      </nav>
+          <nav class="footer__social social" aria-label="Réseaux sociaux">
+            <ul class="social__list">
+              <li class="social__item">
+                <a
+                  class="social__link"
+                  href="https://www.linkedin.com/in/ton-profil"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Profil LinkedIn de Mimae"
+                >
+                  <span
+                    class="social__icon social__icon--linkedin"
+                    aria-hidden="true"
+                    >in</span
+                  >
+                  <span class="social__text">LinkedIn</span>
+                </a>
+              </li>
+              <li class="social__item">
+                <a
+                  class="social__link"
+                  href="https://github.com/mimae71"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Profil GitHub de Mimae"
+                >
+                  <span
+                    class="social__icon social__icon--github"
+                    aria-hidden="true"
+                    >GH</span
+                  >
+                  <span class="social__text">GitHub</span>
+                </a>
+              </li>
+              <li class="social__item">
+                <a
+                  class="social__link"
+                  href="https://x.com/ton-handle"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Profil X (Twitter) de Mimae"
+                >
+                  <span class="social__icon social__icon--x" aria-hidden="true"
+                    >X</span
+                  >
+                  <span class="social__text">X</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
 
-      <p class="footer__copy">© 2025 Portfolio Mimae</p>
+        <!-- Ligne du bas : made with + copyright + mini légal -->
+        <div class="footer__bottom stack stack--s">
+          <div class="footer__bottom-main">
+            <p class="footer__made">
+              Made with
+              <span class="footer__coffee" aria-hidden="true">☕</span> &
+              JavaScript
+            </p>
+
+            <p class="footer__copy">© 2025 Portfolio Mimae</p>
+
+            <!-- lien conservé pour l’accessibilité mais masqué visuellement -->
+            <a href="#main" class="footer__back">Revenir en haut de la page</a>
+          </div>
+
+          <nav class="footer__legal" aria-label="Informations légales">
+            <ul class="footer__legal-list">
+              <li class="footer__legal-item">
+                <a href="#" class="footer__legal-link">Mentions légales</a>
+              </li>
+              <li class="footer__legal-item">
+                <a href="#" class="footer__legal-link"
+                  >Politique de confidentialité</a
+                >
+              </li>
+              <li class="footer__legal-item">
+                <a href="#" class="footer__legal-link">Accessibilité</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </footer>
+
     <script src="./main.js"></script>
   </body>
 </html>

@@ -60,28 +60,44 @@ function updateActiveLink(visibleSectionId) {
 const navAnnouncer = document.getElementById("nav-announcer");
 
 function handleIntersection(entries) {
-  
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
+    const sectionId = entry.target.id;
+
     if (entry.isIntersecting) {
-      const sectionId = entry.target.id;
+      // 1) Annonce (si l'élément a un id)
+      if (navAnnouncer && sectionId) {
+        navAnnouncer.textContent = `Section ${sectionId} affichée`;
+      }
 
-      navAnnouncer.textContent = `Section ${sectionId} affichée`;
+      // 2) Mise à jour du lien actif, si ta fonction existe
+      if (typeof updateActiveLink === "function" && sectionId) {
+        updateActiveLink(sectionId);
+      }
 
-      updateActiveLink(sectionId);
-    }
+      // 3) Animation d'apparition
+      entry.target.classList.add("is-visible");
+    } 
+    // else {
+    //   // Quand l'élément sort du viewport, tu peux retirer la classe
+    //   entry.target.classList.remove("is-visible");
+    // }
   });
 }
 
 // --- Création de l'observateur ---
 const observerOptions = {
-  threshold: 0.6, // section visible à 60%
-  rootMargin: "-80px 0px 0px 0px" // ajustement pour le décalage du header
+  threshold: 0.2, // section visible à 60%
+  rootMargin: "-80px 0px 0px 0px" // pour compenser le header sticky
 };
 
 const observer = new IntersectionObserver(handleIntersection, observerOptions);
 
-// --- Activation de l'observation pour chaque section ---
-sections.forEach(section => observer.observe(section));
+// --- Activation de l'observation ---
+// 1) Observer les sections de ta page (si tu as déjà une NodeList "sections")
+sections.forEach((section) => observer.observe(section));
+
+// 2) Et/ou observer des éléments plus fins marqués .reveal
+document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
 
 // --- Récupération du formulaire et champ statut ---
@@ -209,4 +225,10 @@ btnShowMore.addEventListener("click", () => {
   announcer.textContent = isOpen
     ? "Projet masqué"
     : "Nouveau projet affiché";
+});
+
+const header = document.querySelector(".header");
+
+window.addEventListener("scroll", () => {
+  header.classList.toggle("is-scrolled", window.scrollY > 10);
 });
