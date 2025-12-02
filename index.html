@@ -7,6 +7,7 @@
       name="description"
       content="Portfolio développeur – Projets, compétences et contact."
     />
+    <meta name="theme-color" content="#6d28d9" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,12 +21,12 @@
     <a href="#main" class="skip-link">Aller au contenu</a>
 
     <header class="portfolio__header header">
-      <h1 class="portfolio__title header__title">Portfolio Mimae</h1>
+      <p class="portfolio__title header__title">Portfolio Mimae</p>
 
       <nav class="portfolio__nav nav" aria-label="Navigation principale">
         <ul class="nav__list">
           <li class="nav__item">
-            <a class="nav__link" href="#about">À propos</a>
+            <a class="nav__link" href="#about" aria-current="page">À propos</a>
           </li>
           <li class="nav__item">
             <a class="nav__link" href="#projects">Projets</a>
@@ -38,299 +39,432 @@
     </header>
 
     <main id="main" class="portfolio__main">
-
       <!-- Announce navigation changes to screen readers -->
-  <div id="nav-announcer" aria-live="polite" class="sr-only"></div>
-  
-      <section id="about" class="about" aria-labelledby="titre-apropos">
-        <h2 id="titre-apropos" class="about__title">À propos de moi</h2>
+      <div id="nav-announcer" aria-live="polite" class="sr-only"></div>
 
-        <p class="about__text">
-          Bienvenue sur mon portfolio! Je suis Mimae, un développeur passionné
-          par la création de solutions web innovantes.
-        </p>
+      <section id="about" class="section hero" aria-labelledby="hero-title">
+        <div class="hero__inner grid grid--2">
+          <!-- Colonne texte -->
+          <div class="hero__content stack stack--m">
+            <p class="hero__eyebrow">
+              Développeur & créateur d’outils numériques
+            </p>
 
-        <img
-          class="about__image"
-          src="./ressources/profil.png"
-          alt="portrait de Mimae"
-        />
+            <h1 id="hero-title" class="hero__title">
+              Je conçois des applications web modernes, simples et efficaces
+              pour répondre aux besoins métier des profs.
+            </h1>
 
-        <blockquote class="about__quote quote">
-          <p class="quote__text">
-            Le succès, c’est d’aller d’échec en échec sans perdre son
-            enthousiasme.
-          </p>
-          <cite class="quote__cite">Winston Churchill</cite>
-        </blockquote>
+            <p class="hero__subtitle">
+              Ancien professeur de mathématiques, je développe des applications
+              techniques et accessibles autour de l’éducation, de
+              l’automatisation et de la gestion pédagogique. Mon objectif :
+              créer des solutions concrètes pour les enseignants, établissements
+              et créatifs.
+            </p>
+
+            <div class="hero__actions cluster cluster--start">
+              <a href="#projects" class="btn btn--primary btn--lg">
+                Voir mes projets
+              </a>
+              <a href="#contact" class="btn hero__btn-secondary btn-lg">
+                Me contacter
+              </a>
+            </div>
+
+            <ul
+              class="hero__tags cluster cluster--start"
+              aria-label="Technologies principales"
+            >
+              <li class="hero__tag">JavaScript</li>
+              <li class="hero__tag">React</li>
+              <li class="hero__tag">TypeScript</li>
+              <li class="hero__tag">Node.js</li>
+              <li class="hero__tag">n8n & automatisation</li>
+              <li class="hero__tag">UX/UI</li>
+              <li class="hero__tag">Accessibilité</li>
+              <li class="hero__tag">EdTech</li>
+            </ul>
+          </div>
+
+          <!-- Colonne "carte" profil / focus -->
+          <aside class="hero__card stack stack--s" aria-label="Résumé rapide">
+            <p class="hero__card-label">Focus actuel</p>
+            <h2 class="hero__card-title">
+              Full-stack JavaScript & automatisation
+            </h2>
+            <p class="hero__card-text">
+              Je construis des applications utiles : gestion de classe,
+              optimisation de tâches chronophages, synchronisation de données
+              (École Directe ↔ outils tiers), et interfaces modernes
+              accessibles.gestion de tâches métiers, dashboards intelligents,
+              assistants interactifs.
+            </p>
+            <ul class="hero__meta stack stack--s">
+              <li>
+                <span class="hero__meta-label">Profil</span> Ancien prof de
+                maths
+              </li>
+              <li>
+                <span class="hero__meta-label">Domaines</span> Éducation, jeux
+                de société, TCG
+              </li>
+            </ul>
+          </aside>
+        </div>
       </section>
 
-      <section id="projects" class="projects" aria-labelledby="titre-projets">
-        <h2 id="titre-projets" class="projects__title">Projets</h2>
-        <div id="projects-announcer" aria-live="polite" class="sr-only"></div>
+      <section section id="projects" class="projects reveal" aria-labelledby="titre-projets">
+        <div class="container projects__inner stack stack--m">
+          <!-- Titre + announcer -->
+          <div class="stack stack--s">
+            <h2 id="titre-projets" class="projects__title reveal">Projets</h2>
+            <div
+              id="projects-announcer"
+              aria-live="polite"
+              class="sr-only"
+            ></div>
+          </div>
 
-        <ul class="projects__list">
+          <!-- Grille de cartes -->
+          <ul class="projects__list reveal grid grid--3">
+            <li class="projects__item">
+              <article class="project-card project-card--tasks">
+                <h3 class="project-card__title">
+                  Application de gestion de tâches
+                </h3>
+                <p class="project-card__description">
+                  Une application web permettant aux utilisateurs de gérer leurs
+                  tâches quotidiennes avec des fonctionnalités de création,
+                  modification et suppression de tâches.
+                </p>
+                <p class="project-card__link project-card__link--disabled">
+                  Ouvrir le projet "gestion des tâches" — Démo à venir.
+                </p>
+              </article>
+            </li>
 
-          <li class="projects__item">
-            <article class="project-card project-card--tasks">
-              <h3 class="project-card__title">
-                Application de gestion de tâches
-              </h3>
-              <p class="project-card__description">
-                Une application web permettant aux utilisateurs de gérer leurs
-                tâches quotidiennes avec des fonctionnalités de création,
-                modification et suppression de tâches.
-              </p>
-              <a
-                class="project-card__link"
-                aria-disabled="true"
-                tabindex="-1"
-                rel="noopener noreferrer"
-                >Ouvir le projet "gestion des tâches" Demo a venir.</a
-              >
-            </article>
-          </li>
+            <li class="projects__item">
+              <article class="project-card project-card--boardgames">
+                <h3 class="project-card__title">
+                  Application de gestion de collection de jeux de société
+                </h3>
+                <p class="project-card__description">
+                  Une application web permettant aux passionnés de jeux de
+                  société de gérer, trier leurs collections tout en récupérant
+                  des données.
+                </p>
+                <a
+                  class="project-card__link"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ouvrir le projet "gestion de collection de jeux de société".
+                </a>
+              </article>
+            </li>
 
-          <li class="projects__item">
-            <article class="project-card project-card--boardgames">
-              <h3 class="project-card__title">
-                Application de gestion de collection de jeux de société
-              </h3>
-              <p class="project-card__description">
-                Une application web permettant aux passionnés de jeux de société
-                de gérer, trier leurs collections tout en récupérant des
-                données.
-              </p>
-              <a
-                class="project-card__link"
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Ouvrir le projet "gestion de collection de jeux de société".</a
-              >
-            </article>
-          </li>
+            <li class="projects__item">
+              <article class="project-card project-card--author-site">
+                <h3 class="project-card__title">Site auteur</h3>
+                <p class="project-card__description">
+                  Site d'une autrice de romans talentueuse.
+                </p>
+                <a
+                  class="project-card__link"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ouvrir le site "autrice de romans à succès".
+                </a>
+              </article>
+            </li>
 
-          <li class="projects__item">
-            <article class="project-card project-card--author-site">
-              <h3 class="project-card__title">Site auteur</h3>
-              <p class="project-card__description">
-                Site d'une autrice de romans talentueuse.
-              </p>
-              <a
-                class="project-card__link"
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Ouvrir le site "autrice de romans à succès".</a
+            <li class="projects__item">
+              <article class="project-card project-card--teacher-app">
+                <h3 class="project-card__title">
+                  Application gestion de classe
+                </h3>
+                <p class="project-card__description">
+                  Petite application pour enseignantes et enseignants, permet de
+                  gérer aisément le plan de classe.
+                </p>
+                <a
+                  class="project-card__link"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ouvrir le projet "gestion de classe".
+                </a>
+              </article>
+            </li>
+
+            <li class="projects__item">
+              <article class="project-card project-card--ent">
+                <h3 class="project-card__title">ENT collège</h3>
+                <p class="project-card__description">
+                  Gestion des notes, des emplois du temps, et de la
+                  communication avec les familles.
+                </p>
+                <a
+                  class="project-card__link"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ouvrir le projet "ENT collège".
+                </a>
+              </article>
+            </li>
+
+            <li class="projects__item">
+              <article class="project-card project-card--app-tcg">
+                <h3 class="project-card__title">Application TCG</h3>
+                <p class="project-card__description">
+                  Gestion de collection de cartes, construction de decks,
+                  spéculation, suivi des cours.
+                </p>
+                <a
+                  class="project-card__link"
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ouvrir le projet "TCG".
+                </a>
+              </article>
+            </li>
+
+            <li class="projects__item projects__item--button">
+              <button
+                id="btn-show-more"
+                class="btn btn--primary"
+                aria-controls="extra"
+                aria-expanded="false"
+                type="button"
               >
-            </article>
-          </li>
-          <li class="projects__item">
-            <article class="project-card project-card--teacher-app">
-              <h3 class="project-card__title">Application gestion de classe</h3>
-              <p class="project-card__description">
-                Petite application pour enseigants, permet de gérer aisément
-                plan de classe......
+                Afficher plus
+              </button>
+            </li>
+
+            <li class="projects__item" id="extra-wrapper" hidden>
+              <article class="project-card project-card--secret" id="extra">
+                <h3 class="project-card__title">Projet secret 👀</h3>
+                <p class="project-card__description">
+                  Un projet top secret à venir…
+                </p>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact" class="contact" aria-labelledby="titre-contact">
+        <div class="container contact__inner stack stack--m">
+          <h2 id="titre-contact" class="contact__title reveal">
+            Un projet en tête? Discutons-en.
+          </h2>
+
+          <form
+            class="contact__form form reveal"
+            action="#"
+            method="post"
+            aria-describedby="contact-help form-status"
+            novalidate
+          >
+            <p id="contact-help" class="form__help">
+              Tous les champs sont requis.
+            </p>
+
+            <!-- 🔴 Erreur globale -->
+            <p
+              id="form-global-error"
+              class="form__error-global"
+              role="alert"
+              aria-live="assertive"
+              hidden
+            ></p>
+
+            <!-- Champ Nom -->
+            <div class="form__field">
+              <label class="form__label" for="nom">Nom</label>
+              <input
+                class="form__input"
+                id="nom"
+                name="nom"
+                type="text"
+                autocomplete="name"
+                required
+                aria-describedby="nom-help nom-error"
+              />
+              <p id="nom-help" class="form__hint">
+                Indiquez votre nom ou votre pseudonyme.
               </p>
-              <a
-                class="project-card__link"
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Ouvrir le projet "gestion de classe".</a
-              >
-            </article>
-          </li>
-          <li class="projects__item">
-            <article class="project-card project-card--ent">
-              <h3 class="project-card__title">ENT collège</h3>
-              <p class="project-card__description">
-                Gestion des notes, des edt.
+              <p id="nom-error" class="form__error" aria-live="polite"></p>
+            </div>
+
+            <!-- Champ Email -->
+            <div class="form__field">
+              <label class="form__label" for="email">E-mail</label>
+              <input
+                class="form__input"
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                aria-describedby="email-help email-error"
+              />
+              <p id="email-help" class="form__hint">
+                Exemple : nom@exemple.com.
               </p>
-              <a
-                class="project-card__link"
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Ouvrir le projet "ent".</a
-              >
-            </article>
-          </li>
-          <li class="projects__item">
-            <article class="project-card project-card--app-tcg">
-              <h3 class="project-card__title">Application TCG</h3>
-              <p class="project-card__description">
-                Gestion de collection de cartes, construction de decks,
-                spéculation, suivi des cours.
+              <p id="email-error" class="form__error" aria-live="polite"></p>
+            </div>
+
+            <!-- Champ Message -->
+            <div class="form__field">
+              <label class="form__label" for="message">Message</label>
+              <textarea
+                class="form__textarea"
+                id="message"
+                name="message"
+                rows="5"
+                required
+                aria-describedby="message-help message-error"
+              ></textarea>
+              <p id="message-help" class="form__hint">
+                Expliquez en quelques phrases en quoi je peux vous aider.
               </p>
-              <a
-                class="project-card__link"
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Ouvrir le projet "ent".</a
-              >
-            </article>
-          </li>
-          <li class="projects__item projects__item--button">
-            <button
-              id="btn-show-more"
-              class="btn btn--primary"
-              aria-controls="extra"
-              aria-expanded="false"
-              type="button"
-            >
-              Afficher plus
+              <p id="message-error" class="form__error" aria-live="polite"></p>
+            </div>
+
+            <button class="btn btn--primary js-btn-submit" type="submit">
+              Envoyer
             </button>
-          </li>
-          <li class="projects__item" id="extra-wrapper" hidden>
-            <article
-              class="project-card project-card--secret"
-              id="extra"
-            >
-              <h3 class="project-card__title">Projet secret 👀</h3>
-              <p class="project-card__description">
-                Un projet top secret à venir…
-              </p>
-            </article>
-          </li>
-        </ul>
+
+            <p
+              id="form-status"
+              class="form__status"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            ></p>
+          </form>
+        </div>
       </section>
 
-<section id="contact" class="contact" aria-labelledby="titre-contact">
-  <h2 id="titre-contact" class="contact__title">Contactez-moi</h2>
-
-  <form
-    class="contact__form form"
-    action="#"
-    method="post"
-    aria-describedby="contact-help form-status"
-    novalidate
-  >
-    <p id="contact-help" class="form__help">
-      Tous les champs sont requis.
-    </p>
-      <!-- 🔴 Erreur globale -->
-  <p
-    id="form-global-error"
-    class="form__error-global"
-    role="alert"
-    aria-live="assertive"
-    hidden
-  ></p>
-
-    <!-- Champ Nom -->
-    <div class="form__field">
-      <label class="form__label" for="nom">Nom</label>
-      <input
-        class="form__input"
-        id="nom"
-        name="nom"
-        type="text"
-        autocomplete="name"
-        required
-        aria-describedby="nom-help nom-error"
-      />
-      <p id="nom-help" class="form__hint">
-        Indiquez votre nom ou votre pseudonyme.
-      </p>
-      <p
-        id="nom-error"
-        class="form__error"
-        aria-live="polite"
-      ></p>
-    </div>
-
-    <!-- Champ Email -->
-    <div class="form__field">
-      <label class="form__label" for="email">E-mail</label>
-      <input
-        class="form__input"
-        id="email"
-        name="email"
-        type="email"
-        autocomplete="email"
-        required
-        aria-describedby="email-help email-error"
-      />
-      <p id="email-help" class="form__hint">
-        Exemple : nom@exemple.com.
-      </p>
-      <p
-        id="email-error"
-        class="form__error"
-        aria-live="polite"
-      ></p>
-    </div>
-
-    <!-- Champ Message -->
-    <div class="form__field">
-      <label class="form__label" for="message">Message</label>
-      <textarea
-        class="form__textarea"
-        id="message"
-        name="message"
-        rows="5"
-        required
-        aria-describedby="message-help message-error"
-      ></textarea>
-      <p id="message-help" class="form__hint">
-        Expliquez en quelques phrases en quoi je peux vous aider.
-      </p>
-      <p
-        id="message-error"
-        class="form__error"
-        aria-live="polite"
-      ></p>
-    </div>
-
-    <button class="btn btn--primary js-btn-submit" type="submit">
-      Envoyer
-    </button>
-
-    <p
-      id="form-status"
-      class="form__status"
-      role="status"
-      aria-live="polite"
-      aria-atomic="true"
-    ></p>
-  </form>
-</section>
-
-      <button id="scrollTopBtn">↑</button>
+      <button
+        id="scrollTopBtn"
+        type="button"
+        aria-label="Revenir en haut de la page"
+      >
+        ↑
+      </button>
     </main>
 
-    <footer class="portfolio__footer footer" aria-labelledby="titre-footer">
-      <h2 id="titre-footer" class="footer__title sr-only">
-        Me suivre sur les réseaux sociaux
-      </h2>
+    <footer class="section footer" aria-labelledby="footer-title">
+      <div class="footer__inner container stack stack--m">
+        <!-- Ligne du haut : brand + réseaux -->
+        <div class="footer__top cluster cluster--between">
+          <div class="footer__brand stack stack--s">
+            <p id="footer-title" class="footer__title">
+              Mimae — Développeur web
+            </p>
+            <p class="footer__subtitle">
+              Full-stack JavaScript, automatisation n8n et outils pour
+              l’éducation, les jeux et la création.
+            </p>
+          </div>
 
-      <nav class="footer__social social" aria-label="Réseaux sociaux">
-        <ul class="social__list">
-          <li class="social__item">
-            <a
-              class="social__link"
-              href="https://www.linkedin.com/in/ton-profil"
-              >Profil LinkedIn de Mimae</a
-            >
-          </li>
-          <li class="social__item">
-            <a class="social__link" href="https://github.com/mimae71"
-              >Profil GitHub de Mimae</a
-            >
-          </li>
-          <li class="social__item">
-            <a class="social__link" href="https://x.com/ton-handle"
-              >Profil X (Twitter) de Mimae</a
-            >
-          </li>
-        </ul>
-      </nav>
+          <nav class="footer__social social" aria-label="Réseaux sociaux">
+            <ul class="social__list">
+              <li class="social__item">
+                <a
+                  class="social__link"
+                  href="https://www.linkedin.com/in/ton-profil"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Profil LinkedIn de Mimae"
+                >
+                  <span
+                    class="social__icon social__icon--linkedin"
+                    aria-hidden="true"
+                    >in</span
+                  >
+                  <span class="social__text">LinkedIn</span>
+                </a>
+              </li>
+              <li class="social__item">
+                <a
+                  class="social__link"
+                  href="https://github.com/mimae71"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Profil GitHub de Mimae"
+                >
+                  <span
+                    class="social__icon social__icon--github"
+                    aria-hidden="true"
+                    >GH</span
+                  >
+                  <span class="social__text">GitHub</span>
+                </a>
+              </li>
+              <li class="social__item">
+                <a
+                  class="social__link"
+                  href="https://x.com/ton-handle"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Profil X (Twitter) de Mimae"
+                >
+                  <span class="social__icon social__icon--x" aria-hidden="true"
+                    >X</span
+                  >
+                  <span class="social__text">X</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
 
-      <p class="footer__copy">© 2025 Portfolio Mimae</p>
+        <!-- Ligne du bas : made with + copyright + mini légal -->
+        <div class="footer__bottom stack stack--s">
+          <div class="footer__bottom-main">
+            <p class="footer__made">
+              Made with
+              <span class="footer__coffee" aria-hidden="true">☕</span> &
+              JavaScript
+            </p>
+
+            <p class="footer__copy">© 2025 Portfolio Mimae</p>
+
+            <!-- lien conservé pour l’accessibilité mais masqué visuellement -->
+            <a href="#main" class="footer__back">Revenir en haut de la page</a>
+          </div>
+
+          <nav class="footer__legal" aria-label="Informations légales">
+            <ul class="footer__legal-list">
+              <li class="footer__legal-item">
+                <a href="#" class="footer__legal-link">Mentions légales</a>
+              </li>
+              <li class="footer__legal-item">
+                <a href="#" class="footer__legal-link"
+                  >Politique de confidentialité</a
+                >
+              </li>
+              <li class="footer__legal-item">
+                <a href="#" class="footer__legal-link">Accessibilité</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </footer>
+
     <script src="./main.js"></script>
   </body>
 </html>
