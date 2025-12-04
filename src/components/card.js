@@ -31,7 +31,7 @@ export function Card(title, content, { variant = "default", footerItems = [], ta
   // Tags éventuels
   if (tags.length > 0) {
     const tagsWrapper = document.createElement("div");
-    tagsWrapper.classList.add("card__tags", "inline");
+    tagsWrapper.classList.add("card__tags", "cluster");
 
     tags.forEach((tag) => {
       const tagEl = document.createElement("span");
