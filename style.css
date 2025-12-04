@@ -249,13 +249,21 @@ img {
 ============================ */
 
 .btn--primary {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary) 0%,
-    var(--color-primary-soft) 100%
-  );
+  font-family: var(--font-body);
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  align-self: flex-start;
+
+  padding: 0.55rem 1.2rem;
+  border-radius: var(--radius-s);
+  border: 1px solid transparent;
+
+  background-color: var(--color-primary);
   color: var(--color-text);
   box-shadow: 0 4px 16px rgba(109, 40, 217, 0.35);
+    transition: background-color var(--transition-fast),
+    box-shadow var(--transition-fast), transform var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 .btn--primary:hover {
@@ -313,6 +321,50 @@ img {
   padding: 1rem 1.75rem;
   font-size: var(--font-size-large);
 }
+
+/* ============================
+   CARD
+============================ */
+.card__title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h3);
+  margin-bottom: var(--space-xs);
+}
+.card__content {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-m);
+}
+.card__tags {
+  margin-top: var(--space-s);
+  flex-wrap: wrap;
+  list-style: none; /* enlève les puces */
+  padding: 0; /* enlève l’indent à gauche */
+  margin-left: 0; /* sécurité */
+}
+
+.tag {
+  font-size: var(--font-size-small);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+
+  background: var(--color-surface-subtle);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+
+  box-shadow: var(--shadow-xs);
+  transition: background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.tag:hover,
+.tag:focus-visible {
+  background: var(--color-surface);
+}
+/* .card__footer{
+
+} */
 /* ============================
    ACCESSIBLE PREMIUM FOCUS
 ============================ */
@@ -548,7 +600,7 @@ section {
   padding-block: var(--layout-section-space-y);
   /* min-height: 200vh; /*pour les tests*/
 }
-.reveal{
+.reveal {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 600ms ease, transform 600ms ease;
