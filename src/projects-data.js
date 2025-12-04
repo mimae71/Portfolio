@@ -58,7 +58,7 @@ export const projects = [
     title: "ENT collège",
     description:
       "Gestion des notes, des emplois du temps, et de la communication avec les familles.",
-    tags: ["HTML", "CSS", "UX/UI","Javascript"],
+    tags: ["HTML", "CSS", "UX/UI","JavaScript"],
     demoUrl: "#about",
     codeUrl: "https://github.com/mimae71/portfolio-v2",
   },
@@ -67,7 +67,7 @@ export const projects = [
     title: "Application TCG",
     description:
       "Gestion de collection de cartes, construction de decks, spéculation, suivi des cours.",
-    tags: [ "Base de données","CSS", "Javascript","HTML",  "UX/UI"],
+    tags: [ "Base de données","CSS", "JavaScript","HTML",  "UX/UI"],
     demoUrl: "#about",
     codeUrl: "https://github.com/mimae71/portfolio-v2",
   },

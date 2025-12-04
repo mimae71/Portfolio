@@ -114,17 +114,45 @@
         </div>
       </section>
 
-      <section section id="projects" class="projects reveal" aria-labelledby="titre-projets">
+      <section
+        section
+        id="projects"
+        class="projects reveal"
+        aria-labelledby="titre-projets"
+      >
         <div class="container projects__inner stack stack--m">
           <!-- Titre + announcer -->
-          <div class="stack stack--s">
-            <h2 id="titre-projets" class="projects__title reveal">Projets</h2>
-            <div
-              id="projects-announcer"
-              aria-live="polite"
-              class="sr-only"
-            ></div>
-          </div>
+          <header class="section-header stack stack--s">
+            <p class="section-kicker">Projets sélectionnés</p>
+            <h2 class="section-title">Construire des applications concrètes</h2>
+            <p class="section-subtitle">
+              Filtre les projets par technologie ou cherche un mot-clé.
+            </p>
+
+            <div class="projects__filters stack stack--s">
+              <div class="inline">
+                <button class="tag is-active" data-filter-tag="all">
+                  Tous
+                </button>
+                <button class="tag" data-filter-tag="JavaScript">
+                  JavaScript
+                </button>
+                <button class="tag" data-filter-tag="HTML">HTML</button>
+                <button class="tag" data-filter-tag="CSS">CSS</button>
+                <button class="tag" data-filter-tag="UX/UI">UX/UI</button>
+              </div>
+
+              <label class="projects__search-label" for="project-search">
+                <span class="visually-hidden">Rechercher un projet</span>
+                <input
+                  id="project-search"
+                  type="search"
+                  placeholder="Rechercher un projet..."
+                  class="projects__search-input"
+                />
+              </label>
+            </div>
+          </header>
 
           <!-- Grille de cartes -->
           <ul class="projects__list reveal grid grid--3">

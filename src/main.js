@@ -155,7 +155,8 @@ function toggleExtraProjects(forceOpen) {
   const currentlyOpen = isExtraProjectOpen();
 
   // Nouvel état (si forceOpen est défini, on l'utilise, sinon on inverse)
-  const willBeOpen = typeof forceOpen === "boolean" ? forceOpen : !currentlyOpen;
+  const willBeOpen =
+    typeof forceOpen === "boolean" ? forceOpen : !currentlyOpen;
 
   // Toggle affichage
   extraWrapper.toggleAttribute("hidden", !willBeOpen);
@@ -430,29 +431,95 @@ function trapFocus(container) {
 // =============================
 // 9. Initialisation globale
 // =============================
-import "./dom.js"; // pour garder toute ta logique d'événements de Jour 1
-import { projects } from "./projects-data.js";
+import "./dom.js"; // garde toute la logique d’événements globaux de Jour 1
 import { ProjectCard } from "./components/project-card.js";
 import { render } from "./utils/render.js";
+import {
+  initStore,
+  subscribe,
+  getVisibleProjects,
+  setFilterTag,
+  setSearchQuery,
+} from "./store.js";
 
-function initProjectsGrid() {
+/**
+ * Rend la grille des projets à partir du state global.
+ */
+function renderProjectsGrid() {
   const container = document.querySelector(".projects__list");
   if (!container) return;
 
+  const projects = getVisibleProjects();
+
+  // On vide la grille avant de rerendre
+  container.innerHTML = "";
+
+  if (projects.length === 0) {
+    const empty = document.createElement("p");
+    empty.classList.add("projects__empty");
+    empty.textContent =
+      "Aucun projet ne correspond à ce filtre pour le moment.";
+    container.appendChild(empty);
+    return;
+  }
+
   projects.forEach((project) => {
     const card = ProjectCard(project);
-    render(container, card);
+    render(container, card); // on pourrait passer { clear: false } mais false par défaut
   });
 }
 
+/**
+ * Initialise les contrôles de filtres (tags, recherche, etc.).
+ * On reste dans un esprit event delegation léger.
+ */
+function initFilters() {
+  // Boutons de filtre par tag, ex: <button data-filter-tag="JavaScript">JavaScript</button>
+  document.addEventListener("click", (event) => {
+    const btn = event.target.closest("[data-filter-tag]");
+    if (!btn) return;
+
+    event.preventDefault();
+
+    const tag = btn.dataset.filterTag;
+    const normalizedTag = tag === "all" ? null : tag;
+
+    setFilterTag(normalizedTag);
+
+    // Mise à jour visuelle des boutons actifs
+    const allButtons = document.querySelectorAll("[data-filter-tag]");
+    allButtons.forEach((b) => b.classList.toggle("is-active", b === btn));
+  });
+
+  // Champ de recherche, ex: <input type="search" id="project-search" />
+  const searchInput = document.querySelector("#project-search");
+  if (searchInput) {
+    searchInput.addEventListener("input", (event) => {
+      const value = event.target.value.trim();
+      setSearchQuery(value);
+    });
+  }
+}
+
 function initApp() {
+  // 1) Initialiser le store
+  initStore();
+
+  // 2) Premier rendu de la grille
+  renderProjectsGrid();
+
+  // 3) Abonnement : à chaque changement de state, on rerend
+  subscribe(() => {
+    renderProjectsGrid();
+  });
+
+  // 4) Filtres (tag + search)
+  initFilters();
   initScrollFeatures();
   initClickEvents();
   initKeyboardEvents();
   initFormValidation();
   initIntersectionObserver();
-  initProjectsGrid();
-  // trapFocus(xxx) sera utilisé plus tard si tu ajoutes des modales / menus
 }
 
 // On attend que le DOM soit prêt
